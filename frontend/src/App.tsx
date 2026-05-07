@@ -2,7 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+
+{/* Imports of components */}
 import './App.css'
+import  Calendar from './components/Calendar'
 
 type DailyRating = {
   id: string;
@@ -14,6 +17,7 @@ type DailyRating = {
 }
 
 function App() {
+  {/* State initializawtion */}
   const [currentPage, setCurrentPage] = useState<"dashboard" | "calendar">("dashboard");
   return (
     <>
@@ -25,8 +29,9 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
 
+        {/* Page state block */}
         <div>
-          <h1>{currentPage === "dashboard" &&(
+          {currentPage === "dashboard" &&(
             <div>
               <h2>Dashboard</h2>
               <button type="button" onClick={() => setCurrentPage("calendar")}>
@@ -35,17 +40,12 @@ function App() {
             </div>
           )}
           
-          {currentPage === "calendar" &&(
-            <div>
-              <h2>Calendar</h2>
-              <button type="button" onClick={() => setCurrentPage("dashboard")}>
-                Go to Dashboard
-              </button>
-            </div>
-          )}</h1>
+          {currentPage === "calendar" && <Calendar />}
         </div>
 
       </section>
+
+
 
       <div className="ticks"></div>
 
