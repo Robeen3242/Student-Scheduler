@@ -1,17 +1,16 @@
 import { useState } from "react";
+import type { DailyRating } from "../types/DailyRating";
 {/* Pass functions through objects */}
 type Props = {
     onClose: () => void;
+    onSubmit: (score: DailyRating) => void;
 }
 
-
-function RatingBox({ onClose }: Props) {
-
+function RatingBox({ onClose, onSubmit }: Props) {
   const features = ["stress", "burnout", "energy", "mood"] as const;
   const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
-  const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1); 
-
-  const [score, setScore] = useState({
+  const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+  const [score, setScore] = useState<DailyRating>({
     stress : 5,
     burnout : 5,
     energy : 5,
@@ -19,12 +18,12 @@ function RatingBox({ onClose }: Props) {
   })
   return (
     <div>
-        {/* Prevent click from propagating to the background. 'e' is the event object */}
+        {/* Prevent click from propagating to the foreground. 'e' is the event object */}
         <div style={{ 
             background: "white",
             padding: "20px",
             display: "flex",
-            flexDirection: "column",
+            flexDirection: "column", 
             alignItems: "center",
             gap: "10px",
             }} 
@@ -39,8 +38,16 @@ function RatingBox({ onClose }: Props) {
             onChange={(e) => setScore(prev => ({...prev, [features[currentFeatureIndex]]: parseInt(e.target.value)}))} />
             
 
-            <button onClick={() => {console.log(score);
-            setCurrentFeatureIndex((prev) => (prev + 1) % features.length)}}>
+            <button 
+              onClick={() => {
+                const isLastFeature = currentFeatureIndex === features.length - 1;
+                if (isLastFeature) {
+                  onSubmit(score);
+                  onClose(); // Close the popup after submitting the last feature
+                } else{
+                  setCurrentFeatureIndex((prev) => prev + 1); // Move to the next feature
+                }
+            }}>
                 Submit
             </button>
 

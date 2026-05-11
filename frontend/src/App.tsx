@@ -7,15 +7,6 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import  Calendar from './components/Calendar'
 
-type DailyRating = {
-  id: string;
-  date: string;
-  stress: number;
-  energy: number;
-  mood: number;
-  burnout: number;
-}
-
 function App() {
   {/* State initializawtion */}
   const [currentPage, setCurrentPage] = useState<"dashboard" | "calendar">("dashboard");
