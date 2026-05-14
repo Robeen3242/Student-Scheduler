@@ -1,8 +1,9 @@
 import { useState } from "react";
-import DayBox from "./DayBox";
-import RatingBox from "./RatingBox";
+import Schedule from "./Schedule";
 
 import type { DailyRating } from "../types/DailyRating";
+import CalendarGrid from "./CalendarGrid";
+import RatingBox from "./RatingBox";
 
 
 function Calendar() {
@@ -12,54 +13,49 @@ function Calendar() {
   return (
     <div>
       <h2>Calendar</h2>
-      <div className="calendar-grid" style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(7, 1fr)"
-      }}>
-          {days.map((day) => (
-            <DayBox key={day} onClick={() => setRatingOpen(true)} passKey={day} />
-          ))}
-          {/* Cover entire screen no matter where you scroll */}
-          {/* bgColor: Black transparency with 50% opacity */}
-          {/* Center inside */}
-          {/* Onclick: Set state to false to collapse popup */}
-            {ratingOpen && (
-              <div
-                  style={{
-                  position: "fixed",
-                  top: 0,
-                  left: 0,
-                  width: "100vw",
-                  height: "100vh",
-                  backgroundColor: "rgba(0,0,0,0.5)",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center"
-                  }}
-                  onClick={() => setRatingOpen(false)} 
-              >
-                  {/* Prevent click from propagating to the background. 'e' is the event object */}
-                  <RatingBox
-                    onClose={() => setRatingOpen(false)}
-                    onSubmit={async (score) => {
-                      setRatings(prev => [...prev, score]);
+        <CalendarGrid 
+          days = {days}
+          onDayClick={(day) => setRatingOpen(true)} 
+        />
+        
+        {/* Cover entire screen no matter where you scroll */}
+        {/* bgColor: Black transparency with 50% opacity */}
+        {/* Center inside */}
+        {/* Onclick: Set state to false to collapse popup */}
+        {ratingOpen && (
+          <div
+            style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+            }}
+            onClick={() => setRatingOpen(false)} 
+          >
+        {/* Prevent click from propagating to the background. 'e' is the event object */}
+        <RatingBox
+          onClose={() => setRatingOpen(false)}
+          onSubmit={async (score) => {
+            setRatings(prev => [...prev, score]);
+            const response = await fetch("http://127.0.0.1:8000/ratings", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(score),
+            });
 
-                      const response = await fetch("http://127.0.0.1:8000/ratings", {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(score),
-                      });
-
-                      const data = await response.json();
-                      console.log(data);
-                    }}
-                  />
-
-              </div>
-            )}
-      </div>
+            const data = await response.json();
+            console.log(data);
+          }}
+        />
+            </div>
+        )}
     </div>
   );
 }
