@@ -1,3 +1,5 @@
+import {useState} from "react";
+
 type ScheduleTask = {
   id: number;
   title: string;
@@ -8,7 +10,16 @@ type ScheduleTask = {
 };
 
 function Schedule() {
-  //const [tasks, setTasks] = useState<ScheduleTask[]>([]);
+  const [tasks, setTasks] = useState<ScheduleTask[]>([]);
+
+  function addTask(task: ScheduleTask) {
+    setTasks(prev => [...prev, task]);
+  }
+
+  function deleteTask(taskId: number) {
+    setTasks(prev => prev.filter(task => task.id !== taskId));
+  }
+
   return (
     <div className="schedule-container" style={{ padding: "10px" }}>
       <h1>Manage Schedule</h1>
