@@ -2,20 +2,31 @@
 import DayBox from "./DayBox";
 
 type CalendarGridProps = {
-  days : number[];
-  onDayClick: (day: number) => void;
+  days : (Date | null)[];
+  onDayClick: (day: Date) => void;
 };
 
+const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
 function CalendarGrid({ days, onDayClick }: CalendarGridProps) {
+
   return (
-    <div className="calendar-grid" style={{
-         display: "grid",
+    <div 
+      className="calendar-grid" 
+      style={{
+        display: "grid",
         gridTemplateColumns: "repeat(7, 1fr)"
     }}>
-    {days.map((day) => (
-        <DayBox key={day} onClick={() => onDayClick(day)} passKey={day} />
-    ))}
+      {weekdays.map((day) => (
+        <div key={day} style={{ fontWeight: "bold", textAlign: "center" }}>{day}</div>
+      ))}
+
+      {days.map((day, index) => (
+          day === null ? <div key={`empty-${index}`} /> :
+         <DayBox key={day?.toISOString()} onClick={() => onDayClick(day)} passKey={day} />
+      ))}
     </div>
-);}
+  );
+}
 
 export default CalendarGrid;

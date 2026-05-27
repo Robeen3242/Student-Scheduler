@@ -2,7 +2,7 @@
 //Repeatable box used in CalendarGrid
 type DayBoxProps = {
     onClick: () => void;
-    passKey: number;
+    passKey: Date;
 }
 
 function DayBox({ onClick, passKey }: DayBoxProps) {
@@ -19,7 +19,7 @@ function DayBox({ onClick, passKey }: DayBoxProps) {
             justifyContent: "center",
             alignItems: "center"
         }}>
-            <h3>{passKey}</h3>
+            <h3>{passKey.getDate()}</h3>
         </div>
     );
 }

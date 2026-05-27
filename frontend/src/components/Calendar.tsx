@@ -6,9 +6,27 @@ import CalendarGrid from "./CalendarGrid";
 import RatingBox from "./RatingBox";
 import Modal from "./Modal";
 
+function getCalendarDays(year: number, month: number) {
+  const dates: (Date | null)[] = [];
 
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+
+  const startingWeekday = firstDay.getDay(); // 0 = Sunday, 1 = Monday, etc.
+
+  for (let i = 0; i < startingWeekday; i++) {
+    dates.push(null);
+  }
+
+  for (let day = 1; day <= lastDay.getDate(); day++) {
+    dates.push(new Date(year, month, day));
+  }
+
+  return dates;
+}
 function Calendar() {
-  const days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35];
+  const today = new Date();
+  const days = getCalendarDays(today.getFullYear(), today.getMonth())
   const[ratingOpen, setRatingOpen] = useState(false);
   const [ratings, setRatings] = useState<DailyRating[]>([]);
 
@@ -74,4 +92,4 @@ function Calendar() {
   );
 }
 
-export default Calendar; {/* Need this to be referenced */}
+export default Calendar; //Need this to be referenced
