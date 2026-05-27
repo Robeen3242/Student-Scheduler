@@ -1,4 +1,5 @@
 {/* onClick is a function with no args and no return value */}
+//Repeatable box used in CalendarGrid
 type DayBoxProps = {
     onClick: () => void;
     passKey: number;

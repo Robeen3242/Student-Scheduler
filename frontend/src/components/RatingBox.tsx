@@ -1,3 +1,4 @@
+//Form for selecting rating
 import { useState } from "react";
 import type { DailyRating } from "../types/DailyRating";
 {/* Pass functions through objects */}
@@ -20,7 +21,7 @@ function RatingBox({ onClose, onSubmit }: Props) {
     <div>
         {/* Prevent click from propagating to the foreground. 'e' is the event object */}
         <div style={{ 
-            background: "white",
+            background: "#263241",
             padding: "20px",
             display: "flex",
             flexDirection: "column", 

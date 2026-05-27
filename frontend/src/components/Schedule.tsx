@@ -1,28 +1,53 @@
 import {useState} from "react";
+import type {
+  ScheduleTask, 
+  ScheduleOccurrence, 
+  Recurrence
+} from "../types/ScheduleTask";
+import TaskForm from "./TaskForm";
 
-type ScheduleTask = {
-  id: number;
-  title: string;
-  description: string;
-  dueDate: string; // ISO format date string
-  occurance: "daily" | "weekly" | "biweekly" | "monthly";
-  priority: number; // 1-5, 5 being the highest priority
-};
+type ScheduleProps = {
+  onClose: () => void;
+}
 
-function Schedule() {
+function Schedule({ onClose }: ScheduleProps) {
   const [tasks, setTasks] = useState<ScheduleTask[]>([]);
+  const [addTaskOpen, setAddTaskOpen] = useState(false);
 
-  function addTask(task: ScheduleTask) {
-    setTasks(prev => [...prev, task]);
-  }
-
-  function deleteTask(taskId: number) {
-    setTasks(prev => prev.filter(task => task.id !== taskId));
+  function addtask(newtask: ScheduleTask) {
+    setTasks(prev => [...prev, newtask]);
   }
 
   return (
-    <div className="schedule-container" style={{ padding: "10px" }}>
-      <h1>Manage Schedule</h1>
+    <div>
+      <div 
+      style={{
+        background: "#263241",
+        padding: "20px",
+        display: "flex",
+        flexDirection: "column", 
+        alignItems: "center",
+      }}
+      onClick={(e) => e.stopPropagation()
+      }>
+        <button 
+        style={{
+          padding: "10px 20px",
+          backgroundColor: "lightblue",
+          border: "none",
+          cursor: "pointer",
+          marginBottom: "20px",
+        }}
+        onClick={() => setAddTaskOpen(true)
+        }>
+          Add Task
+        </button>
+        {addTaskOpen && (
+          <TaskForm onSubmit={addtask} />
+        )}
+
+        <button onClick={onClose}>Close</button>
+      </div>
     </div>
   );
 }

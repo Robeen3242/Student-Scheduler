@@ -1,3 +1,4 @@
+//Overlay of the calendar that shows the schedules
 import DayBox from "./DayBox";
 
 type CalendarGridProps = {
