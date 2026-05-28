@@ -7,20 +7,12 @@ type DayBoxProps = {
 
 function DayBox({ onClick, passKey }: DayBoxProps) {
     return (
-        <div className="day-box" 
-        onClick={onClick}
-        style={{ 
-            border: "1px solid black",
-            padding: "10px",
-            cursor: "pointer",
-            minHeight: "100px",
-            minWidth: "100px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }}>
-            <h3>{passKey.getDate()}</h3>
-        </div>
+        <button className="day-box" onClick={onClick} type="button">
+            <span className="day-box-header">
+                <span className="day-box-date">{passKey.getDate()}</span>
+            </span>
+            <span className="day-box-content" aria-hidden="true" />
+        </button>
     );
 }
 

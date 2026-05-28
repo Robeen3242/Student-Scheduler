@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import type { FormEvent } from "react";
 import type { Recurrence, ScheduleTask, ScheduleOccurrence } from "../types/ScheduleTask";
 
 type TaskFormProps = {
@@ -12,20 +13,6 @@ function TaskForm({ onSubmit }: TaskFormProps) {
   const [recurrence, setRecurrence] = useState<Recurrence>("once");
   const [priority, setPriority] = useState(1);
   const [date_due, setDateDue] = useState("");
-
-  const fieldStyle: React.CSSProperties = {
-    display: "grid",
-    gridTemplateColumns: "140px minmax(0, 1fr)",
-    alignItems: "center",
-    gap: "12px",
-    width: "100%",
-  };
-
-  const inputStyle: React.CSSProperties = {
-    width: "100%",
-    padding: "8px",
-    boxSizing: "border-box",
-  };
 
   const recurrenceMap = {
     daily: (date: Date) => {
@@ -45,7 +32,7 @@ function TaskForm({ onSubmit }: TaskFormProps) {
     }
   };
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: FormEvent) {
     // Handle form submission logic here
     e.preventDefault();
 
@@ -106,53 +93,34 @@ function TaskForm({ onSubmit }: TaskFormProps) {
 
   //FORM
   return (
-    <div
-    style={{
-        display: "flex",
-        justifyContent: "center",
-        width: "100%"
-    }}>
+    <div className="task-form-wrap">
       <form 
       onSubmit={handleSubmit}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "stretch",
-        gap: "16px",
-
-        width: "100%",
-        maxWidth: "560px",
-
-        padding: "20px",
-        boxSizing: "border-box",
-    }}>
+      className="task-form">
       
-      <label style={fieldStyle}>
-        <span>Title:</span>
+      <label className="task-field">
+        <span>Title</span>
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          style={inputStyle}
+          placeholder="Study session"
         />
       </label>
 
-      <label style={{ ...fieldStyle, alignItems: "start" }}>
-        <span>Description:</span>
+      <label className="task-field task-field-top">
+        <span>Description</span>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          style={{
-            ...inputStyle,
-            minHeight: "100px",
-        }}/>
+          placeholder="What needs to get done?"
+        />
       </label>
 
-      <label style={fieldStyle}>
-        <span>Recurrence:</span>
+      <label className="task-field">
+        <span>Recurrence</span>
         <select
           value={recurrence}
           onChange={(e) => setRecurrence(e.target.value as Recurrence)}
-          style={inputStyle}
         >
           <option value="once">Once</option>
           <option value="daily">Daily</option>
@@ -162,28 +130,31 @@ function TaskForm({ onSubmit }: TaskFormProps) {
         </select>
       </label>
 
-      <label style={fieldStyle}>
-        <span>Priority (1-5):</span>
+      <label className="task-field">
+        <span>Priority</span>
         <input
+          className="task-priority-input"
           type="number"
           min={1}
           max={5}
           value={priority}
           onChange={(e) => setPriority(Number(e.target.value))}
-          style={{ ...inputStyle, maxWidth: "120px" }}
         />
       </label>
 
-      <label style={fieldStyle}>
-        <span>Due Date:</span>
+      <label className="task-field">
+        <span>Due Date</span>
         <input
           type="date"
-          style={inputStyle}
           value={date_due}
           onChange={(e) => setDateDue(e.target.value)}
         />
       </label>
-      <button type="submit" style={{ alignSelf: "center" }}>Add Task</button>
+      <div className="task-form-actions">
+        <button type="submit" className="app-button app-button-primary">
+          Add Task
+        </button>
+      </div>
       </form>
     </div>
   );

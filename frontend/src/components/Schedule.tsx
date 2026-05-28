@@ -1,8 +1,6 @@
 import {useState} from "react";
 import type {
-  ScheduleTask, 
-  ScheduleOccurrence, 
-  Recurrence
+  ScheduleTask
 } from "../types/ScheduleTask";
 import TaskForm from "./TaskForm";
 
@@ -11,8 +9,9 @@ type ScheduleProps = {
 }
 
 function Schedule({ onClose }: ScheduleProps) {
-  const [tasks, setTasks] = useState<ScheduleTask[]>([]);
-  const [addTaskOpen, setAddTaskOpen] = useState(false);
+  const [, setTasks] = useState<ScheduleTask[]>([]);
+  type scheduleView = "main" | "addTask";
+  const [view, setView] = useState<scheduleView>("main");
 
   function addtask(newtask: ScheduleTask) {
     setTasks(prev => [...prev, newtask]);
@@ -30,23 +29,34 @@ function Schedule({ onClose }: ScheduleProps) {
       }}
       onClick={(e) => e.stopPropagation()
       }>
-        <button 
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "lightblue",
-          border: "none",
-          cursor: "pointer",
-          marginBottom: "20px",
-        }}
-        onClick={() => setAddTaskOpen(true)
-        }>
-          Add Task
-        </button>
-        {addTaskOpen && (
-          <TaskForm onSubmit={addtask} />
-        )}
 
-        <button onClick={onClose}>Close</button>
+        <div 
+        className="modal-actions"
+        style={{ 
+          display: "flex",
+          marginBottom: "20px",
+        }}>
+          {view === "main" && (
+          <>
+            <button 
+            className="app-button app-button-primary"
+            onClick={() => setView("addTask")
+            }>
+              Add Task
+            </button>
+            <button className="app-button app-button-secondary" onClick={onClose}>
+              Close
+            </button>
+          </>)}
+
+          {view === "addTask" && (
+          <div className="schedule-form-panel">
+            <TaskForm onSubmit={addtask}/>
+            <button className="app-button app-button-back" onClick={() => setView("main")}>
+              Back
+            </button>
+          </div>)}
+        </div>
       </div>
     </div>
   );

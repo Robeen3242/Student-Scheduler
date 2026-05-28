@@ -28,15 +28,15 @@ function Calendar() {
   const today = new Date();
   const days = getCalendarDays(today.getFullYear(), today.getMonth())
   const[ratingOpen, setRatingOpen] = useState(false);
-  const [ratings, setRatings] = useState<DailyRating[]>([]);
+  const [, setRatings] = useState<DailyRating[]>([]);
 
   const[scheduleOpen, setScheduleOpen] = useState(false);
   return (
-    <div>
+    <div className="calendar-page">
       <h2>Calendar</h2>
         <CalendarGrid 
           days = {days}
-          onDayClick={(day) => setRatingOpen(true)} 
+          onDayClick={() => setRatingOpen(true)} 
         />
         
         {/* Cover entire screen no matter where you scroll */}
@@ -67,14 +67,11 @@ function Calendar() {
             />
           </Modal>
         )}
-      <section style={{ marginTop: "20px" }}>
+      <section className="calendar-actions">
         <button
+        className="app-button app-button-primary"
         onClick={() => setScheduleOpen(true)} 
-        style={{ 
-        padding: "10px 20px", 
-        backgroundColor: "lightblue", 
-        border: "none", 
-        cursor: "pointer" }}>
+        >
           Open Schedule
         </button>
         {scheduleOpen && (
@@ -88,7 +85,6 @@ function Calendar() {
         )}
       </section>
     </div>
-
   );
 }
 

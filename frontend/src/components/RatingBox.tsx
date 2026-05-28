@@ -40,6 +40,7 @@ function RatingBox({ onClose, onSubmit }: Props) {
             
 
             <button 
+              className="app-button app-button-primary"
               onClick={() => {
                 const isLastFeature = currentFeatureIndex === features.length - 1;
                 if (isLastFeature) {
@@ -52,7 +53,9 @@ function RatingBox({ onClose, onSubmit }: Props) {
                 Submit
             </button>
 
-            <button onClick={onClose}>Close</button>
+            <button className="app-button app-button-secondary" onClick={onClose}>
+              Close
+            </button>
         </div>
     </div>
   );

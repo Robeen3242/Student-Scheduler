@@ -109,3 +109,347 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.calendar-page {
+  width: 100%;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+}
+
+.calendar-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.calendar-grid {
+  display: grid;
+  width: min(100%, 920px);
+  grid-template-columns: repeat(7, minmax(92px, 1fr));
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.calendar-weekday {
+  padding: 4px 2px 8px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.day-box,
+.day-box-empty {
+  min-width: 0;
+  min-height: 128px;
+  border-radius: 8px;
+}
+
+.day-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 10px;
+  color: var(--text-h);
+  border: 1px solid var(--border);
+  background: var(--social-bg);
+  cursor: pointer;
+  overflow: hidden;
+  transform: translateY(0) scale(1);
+  transform-origin: center;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.day-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: var(--accent-bg);
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.day-box-date {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  min-width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.day-box-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.day-box-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 64px;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.day-box:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: var(--shadow);
+}
+
+.day-box:hover::after {
+  opacity: 1;
+}
+
+.day-box:hover .day-box-date {
+  color: var(--accent);
+  background: var(--bg);
+}
+
+.day-box:active {
+  transform: translateY(0) scale(0.99);
+  box-shadow: none;
+}
+
+.day-box:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.modal-actions {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.schedule-form-panel {
+  display: flex;
+  width: min(100%, 620px);
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-form-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.task-form {
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.task-field {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 120px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.task-field-top {
+  align-items: start;
+}
+
+.task-field span {
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.task-field input,
+.task-field textarea,
+.task-field select {
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  color: var(--text-h);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  font: 15px/1.3 var(--sans);
+  letter-spacing: 0;
+}
+
+.task-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.task-field input:focus,
+.task-field textarea:focus,
+.task-field select:focus {
+  border-color: var(--accent-border);
+  outline: 2px solid var(--accent-bg);
+  outline-offset: 1px;
+}
+
+.task-priority-input {
+  max-width: 120px;
+}
+
+.task-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.app-button {
+  min-height: 40px;
+  padding: 9px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font: 600 14px/1 var(--sans);
+  letter-spacing: 0;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.app-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.app-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.app-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.app-button-primary {
+  color: #ffffff;
+  background: var(--accent);
+}
+
+.app-button-primary:hover {
+  background: #922de0;
+}
+
+.app-button-secondary {
+  color: var(--text-h);
+  background: var(--social-bg);
+  border-color: var(--border);
+}
+
+.app-button-secondary:hover {
+  border-color: var(--accent-border);
+}
+
+.app-button-back {
+  color: var(--text-h);
+  background: transparent;
+  border-color: var(--border);
+  align-self: flex-start;
+}
+
+.app-button-back::before {
+  content: "<";
+  margin-right: 8px;
+}
+
+.app-button-back:hover {
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+@media (max-width: 620px) {
+  .calendar-grid {
+    gap: 4px;
+    grid-template-columns: repeat(7, minmax(38px, 1fr));
+  }
+
+  .calendar-weekday {
+    font-size: 11px;
+  }
+
+  .day-box,
+  .day-box-empty {
+    min-height: 72px;
+    border-radius: 6px;
+  }
+
+  .day-box {
+    padding: 6px;
+    gap: 4px;
+  }
+
+  .day-box-date {
+    min-width: 24px;
+    height: 24px;
+    font-size: 13px;
+  }
+
+  .day-box-content {
+    min-height: 32px;
+  }
+
+  .task-form {
+    padding: 12px;
+  }
+
+  .task-field {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .task-priority-input {
+    max-width: 100%;
+  }
+
+  .task-form-actions {
+    justify-content: stretch;
+  }
+
+  .task-form-actions .app-button {
+    width: 100%;
+  }
+}
