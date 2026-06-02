@@ -4,32 +4,35 @@ import type { Recurrence, ScheduleTask, ScheduleOccurrence } from "../types/Sche
 
 type TaskFormProps = {
   onSubmit: (task: ScheduleTask) => void;
+  task?: ScheduleTask;
 }  
 
-function TaskForm({ onSubmit }: TaskFormProps) {
+function TaskForm({ onSubmit, task }: TaskFormProps) {
   //Initializations
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [recurrence, setRecurrence] = useState<Recurrence>("once");
-  const [priority, setPriority] = useState(1);
-  const [date_due, setDateDue] = useState("");
+  const [title, setTitle] = useState(task?.title ?? "");
+  const [description, setDescription] = useState(task?.description ?? "");
+  const [recurrence, setRecurrence] = useState<Recurrence>(task?.recurrence ?? "once");
+  const [priority, setPriority] = useState(task?.priority ?? 1);
+  const [date_due, setDateDue] = useState(task?.occurrences[0]?.date_due ?? "");
+  
 
-  const recurrenceMap = {
-    daily: (date: Date) => {
-        date.setDate(date.getDate() + 1);
-    },
+  function getSemesterEndDate(date_due: Date) {
+    const year = date_due.getFullYear();
+    const semseterEndDate = [
+      new Date(year, 3, 30),  // Spring: Apr 30
+      new Date(year, 5, 30),  // Summer: Jun 30
+      new Date(year, 7, 31),  // Fall-ish? Aug 31
+      new Date(year, 11, 31), // Winter/Fall end: Dec 31
+    ];
+    const dueDate = new Date(date_due);
+    return semseterEndDate.find(endDate => dueDate <= endDate) ?? semseterEndDate[semseterEndDate.length - 1];
+  }
 
-    weekly: (date: Date) => {
-        date.setDate(date.getDate() + 7);
-    },
-
-    biweekly: (date: Date) => {
-        date.setDate(date.getDate() + 14);
-    },
-
-    monthly: (date: Date) => {
-        date.setMonth(date.getMonth() + 1);
-    }
+  const recurrenceMap: Record<Exclude<Recurrence, "once">, (date: Date) => void> = {
+    daily: (date) => date.setDate(date.getDate() + 1),
+    weekly: (date) => date.setDate(date.getDate() + 7),
+    biweekly: (date) => date.setDate(date.getDate() + 14),
+    monthly: (date) => date.setMonth(date.getMonth() + 1),
   };
 
   function handleSubmit(e: FormEvent) {
@@ -37,12 +40,12 @@ function TaskForm({ onSubmit }: TaskFormProps) {
     e.preventDefault();
 
     const newTask: ScheduleTask = {
-      id: crypto.randomUUID(),
-      title,
-      description,
-      recurrence,
-      priority,
-      occurrences: [],
+        id: task?.id ?? crypto.randomUUID(),
+        title,
+        description,
+        recurrence,
+        priority,
+        occurrences: task?.occurrences ?? [], // This will be populated based on the recurrence pattern
     };
 
     const occurrences = generateOccurrences(newTask, date_due);
@@ -65,19 +68,10 @@ function TaskForm({ onSubmit }: TaskFormProps) {
     // This function would generate occurrences based on the task's recurrence pattern
     // For simplicity, we'll return an empty array here
     const occurrences: ScheduleOccurrence[] = [];
-    const currentDate = new Date();
-    const dueDate = new Date(date_due);
-    if (task.recurrence === "once") {
-        return [{
-            id: crypto.randomUUID(),
-            taskId: task.id,
-            date_due: date_due,
-            isCompleted: false,
-            isCancelled: false,
-        }];
-    }
+    const currentDate = new Date(date_due);
+    const endDate = getSemesterEndDate(currentDate);
     const advanceDate = recurrenceMap[task.recurrence as Exclude<Recurrence, "once">];
-    while (currentDate <= dueDate) {
+    while (currentDate <= endDate) {
       occurrences.push({
         id: crypto.randomUUID(),
         taskId: task.id,
@@ -90,6 +84,7 @@ function TaskForm({ onSubmit }: TaskFormProps) {
 
     return occurrences;
   }
+
 
   //FORM
   return (
@@ -152,7 +147,7 @@ function TaskForm({ onSubmit }: TaskFormProps) {
       </label>
       <div className="task-form-actions">
         <button type="submit" className="app-button app-button-primary">
-          Add Task
+          {task ? "Update Task" : "Add Task"  }
         </button>
       </div>
       </form>

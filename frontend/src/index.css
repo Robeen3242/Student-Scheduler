@@ -248,12 +248,123 @@ code {
   gap: 10px;
 }
 
+.schedule-main-panel {
+  display: flex;
+  width: min(100%, 620px);
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.schedule-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
 .schedule-form-panel {
   display: flex;
   width: min(100%, 620px);
   flex-direction: column;
   align-items: center;
   gap: 12px;
+}
+
+.task-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-list-empty {
+  padding: 16px;
+  color: var(--text);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
+}
+
+.task-box {
+  padding: 14px;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #344353;
+  text-align: left;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 8px 18px rgba(0, 0, 0, 0.18);
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.task-box:hover {
+  border-color: var(--accent-border);
+  background: #405164;
+  transform: translateY(-1px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+.task-box-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.task-box h3 {
+  margin: 0;
+  color: var(--text-h);
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.task-box-priority {
+  display: inline-flex;
+  min-width: 34px;
+  min-height: 26px;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  border-radius: 6px;
+  background: var(--accent-bg);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.task-box-description {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.task-box-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.task-box-meta span {
+  padding: 4px 8px;
+  color: var(--text-h);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  font-size: 12px;
+  line-height: 1;
+  text-transform: capitalize;
 }
 
 .task-form-wrap {
