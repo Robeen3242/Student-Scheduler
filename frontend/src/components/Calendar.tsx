@@ -2,6 +2,7 @@ import { useState } from "react";
 import Schedule from "./Schedule";
 
 import type { DailyRating } from "../types/DailyRating";
+import type { ScheduleTask } from "../types/ScheduleTask";
 import CalendarGrid from "./CalendarGrid";
 import RatingBox from "./RatingBox";
 import Modal from "./Modal";
@@ -30,13 +31,18 @@ function Calendar() {
   const[ratingOpen, setRatingOpen] = useState(false);
   const [, setRatings] = useState<DailyRating[]>([]);
 
+
   const[scheduleOpen, setScheduleOpen] = useState(false);
+
+  const [tasks, setTasks] = useState<ScheduleTask[]>([]);
+
   return (
     <div className="calendar-page">
       <h2>Calendar</h2>
         <CalendarGrid 
           days = {days}
           onDayClick={() => setRatingOpen(true)} 
+          tasks={tasks}
         />
         
         {/* Cover entire screen no matter where you scroll */}
@@ -80,7 +86,7 @@ function Calendar() {
             onClose={() => setScheduleOpen(false)}
             title="Schedule"
           >
-            <Schedule onClose={() => setScheduleOpen(false)} />
+            <Schedule onClose={() => setScheduleOpen(false)} tasks={tasks} setTasks={setTasks} />
           </Modal>
         )}
       </section>

@@ -1,17 +1,15 @@
 import {useState} from "react";
-import type {
-  ScheduleTask
-} from "../types/ScheduleTask";
+import type { ScheduleTask } from "../types/ScheduleTask";
 import TaskForm from "./TaskForm";
 import TaskBox from "./TaskBox";
 
 type ScheduleProps = {
   onClose: () => void;
+  tasks: ScheduleTask[];
+  setTasks: React.Dispatch<React.SetStateAction<ScheduleTask[]>>;
 }
 
-function Schedule({ onClose }: ScheduleProps) {
-  //list of saved tasks
-  const [tasks, setTasks] = useState<ScheduleTask[]>([]);
+function Schedule({ onClose, tasks, setTasks }: ScheduleProps) {
 
   const [selectedTask, setSelectedTask] = useState<ScheduleTask | null>(null);
 
