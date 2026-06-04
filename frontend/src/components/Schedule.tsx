@@ -6,10 +6,11 @@ import TaskBox from "./TaskBox";
 type ScheduleProps = {
   onClose: () => void;
   tasks: ScheduleTask[];
-  setTasks: React.Dispatch<React.SetStateAction<ScheduleTask[]>>;
+  onAdd: (task: ScheduleTask) => void;
+  onUpdate: (task: ScheduleTask) => void;
 }
 
-function Schedule({ onClose, tasks, setTasks }: ScheduleProps) {
+function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
 
   const [selectedTask, setSelectedTask] = useState<ScheduleTask | null>(null);
 
@@ -17,13 +18,13 @@ function Schedule({ onClose, tasks, setTasks }: ScheduleProps) {
   const [view, setView] = useState<scheduleView>("main");
 
   function addtask(newtask: ScheduleTask) {
-    setTasks(prev => [...prev, newtask]);
+    onAdd(newtask);
     setView("main");
   }
 
   function updateTask(updatedTask: ScheduleTask) {
-    setTasks(prev => prev.map(task => task.id === updatedTask.id ? updatedTask : task));
     setSelectedTask(null);
+    onUpdate(updatedTask);
     setView("main");
   }
 

@@ -36,6 +36,32 @@ function Calendar() {
 
   const [tasks, setTasks] = useState<ScheduleTask[]>([]);
 
+  async function addTask(newTask: ScheduleTask) {
+    setTasks(prev => [...prev, newTask]);
+    const response = await fetch("http://127.0.0.1:8000/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTask),
+    });
+    const data = await response.json();
+    console.log(data);
+  }
+
+  async function updateTask(updatedTask: ScheduleTask) {
+    setTasks(prev => prev.map(task => task.id === updatedTask.id ? updatedTask : task));
+    const response = await fetch(`http://127.0.0.1:8000/tasks/${updatedTask.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTask),
+    });
+    const data = await response.json();
+    console.log(data);
+  }
+
   return (
     <div className="calendar-page">
       <h2>Calendar</h2>
@@ -86,7 +112,12 @@ function Calendar() {
             onClose={() => setScheduleOpen(false)}
             title="Schedule"
           >
-            <Schedule onClose={() => setScheduleOpen(false)} tasks={tasks} setTasks={setTasks} />
+            <Schedule 
+            onClose={() => setScheduleOpen(false)} 
+            tasks={tasks} 
+            onAdd={addTask}
+            onUpdate={updateTask}
+            />
           </Modal>
         )}
       </section>
