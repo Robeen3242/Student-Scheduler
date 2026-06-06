@@ -17,7 +17,7 @@ function DayBox({ onClick, passKey, tasks }: DayBoxProps) {
             </span>
             <span className="day-box-content" aria-hidden="true">
                 {tasks.map((task) => (
-                  <CalendarTaskChip key={task.id} task={task} />
+                  <CalendarTaskChip key={task.taskId} task={task} />
                 ))}
             </span>
         </button>

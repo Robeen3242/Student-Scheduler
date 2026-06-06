@@ -10,7 +10,7 @@ type ScheduleOccurrence = {
 };
 
 type ScheduleTask = {
-  id: string; //taskId
+  taskId: string;
   title: string;
   description: string;
   recurrence: Recurrence;

@@ -40,7 +40,7 @@ function TaskForm({ onSubmit, task }: TaskFormProps) {
     e.preventDefault();
 
     const newTask: ScheduleTask = {
-        id: task?.id ?? crypto.randomUUID(),
+        taskId: task?.taskId ?? crypto.randomUUID(),
         title,
         description,
         recurrence,
@@ -74,7 +74,7 @@ function TaskForm({ onSubmit, task }: TaskFormProps) {
     while (currentDate <= endDate) {
       occurrences.push({
         id: crypto.randomUUID(),
-        taskId: task.id,
+        taskId: task.taskId,
         date_due: currentDate.toISOString().split("T")[0],
         isCancelled: false,
         isCompleted: false

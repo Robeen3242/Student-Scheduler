@@ -25,10 +25,20 @@ function getCalendarDays(year: number, month: number) {
 
   return dates;
 }
+
+function formatDate(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
 function Calendar() {
   const today = new Date();
   const days = getCalendarDays(today.getFullYear(), today.getMonth())
   const[ratingOpen, setRatingOpen] = useState(false);
+  const [selectedRatingDate, setSelectedRatingDate] = useState(formatDate(today));
   const [, setRatings] = useState<DailyRating[]>([]);
 
 
@@ -50,8 +60,8 @@ function Calendar() {
   }
 
   async function updateTask(updatedTask: ScheduleTask) {
-    setTasks(prev => prev.map(task => task.id === updatedTask.id ? updatedTask : task));
-    const response = await fetch(`http://127.0.0.1:8000/tasks/${updatedTask.id}`, {
+    setTasks(prev => prev.map(task => task.taskId === updatedTask.taskId ? updatedTask : task));
+    const response = await fetch(`http://127.0.0.1:8000/tasks/${updatedTask.taskId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +77,10 @@ function Calendar() {
       <h2>Calendar</h2>
         <CalendarGrid 
           days = {days}
-          onDayClick={() => setRatingOpen(true)} 
+          onDayClick={(day) => {
+            setSelectedRatingDate(formatDate(day));
+            setRatingOpen(true);
+          }} 
           tasks={tasks}
         />
         
@@ -82,6 +95,7 @@ function Calendar() {
             title="Rate this day"
           >
             <RatingBox
+              date={selectedRatingDate}
               onClose={() => setRatingOpen(false)}
               onSubmit={async (score) => {
                 setRatings(prev => [...prev, score]);

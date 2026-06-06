@@ -67,7 +67,7 @@ function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
               ) : (
                 tasks.map((task) => (
                   <TaskBox 
-                  key={task.id} 
+                  key={task.taskId} 
                   task={task} 
                   onClick={() => {
                     setSelectedTask(task);

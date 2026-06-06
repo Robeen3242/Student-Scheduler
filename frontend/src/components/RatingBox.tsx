@@ -3,15 +3,17 @@ import { useState } from "react";
 import type { DailyRating } from "../types/DailyRating";
 {/* Pass functions through objects */}
 type Props = {
+    date: string;
     onClose: () => void;
     onSubmit: (score: DailyRating) => void;
 }
 
-function RatingBox({ onClose, onSubmit }: Props) {
+function RatingBox({ date, onClose, onSubmit }: Props) {
   const features = ["stress", "burnout", "energy", "mood"] as const;
   const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
   const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
   const [score, setScore] = useState<DailyRating>({
+    date,
     stress : 5,
     burnout : 5,
     energy : 5,
