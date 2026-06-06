@@ -1,161 +1,169 @@
-# 📅 Student Scheduler with Burnout Prediction
+# 📅 Student Scheduler Platform
 
-A smart student scheduling system designed to reduce decision fatigue and improve productivity through schedule management, daily metric tracking, and future AI-driven analysis.
+A full-stack productivity platform designed to help students manage workload, scheduling, stress, and burnout through data-driven planning tools.
 
-This project aims to go beyond a standard calendar application by combining scheduling tools with behavioral data (stress, energy, mood, burnout, etc.) to eventually identify patterns and make personalized recommendations.
-
----
-
-## 🚀 Project Goals
-
-Traditional scheduling apps store tasks, but they do not adapt to the person using them.
-
-This project aims to:
-
-- Track daily student well-being metrics
-- Manage schedules and deadlines
-- Reduce decision fatigue through task recommendations
-- Analyze workload and burnout patterns
-- Explore ML approaches for personalized scheduling
+Unlike traditional scheduling applications, this project combines task management, wellness tracking, analytics, and machine learning research to better understand how academic workload impacts student well-being.
 
 ---
 
-## 🛠 Tech Stack
+# 🗺 Project Roadmap
 
-### Frontend
+## Stage 1 — Core Platform ✅
+
+- [x] Interactive calendar interface
+- [x] Task creation and management
+- [x] Recurring task support
+- [x] Daily wellness tracking
+- [x] FastAPI backend integration
+- [x] Schedule management workflows
+
+## Stage 2 — Analytics & Machine Learning 🚧
+
+Current Focus
+
+- [ ] Data cleaning
+- [ ] Feature engineering
+- [ ] Dataset generation
+- [ ] Exploratory data analysis
+- [ ] Burnout prediction models
+- [ ] Model evaluation
+
+## Stage 3 — Persistence & Scaling
+
+- [ ] Database integration
+- [ ] User accounts
+- [ ] Authentication
+- [ ] Persistent storage
+
+## Future Features
+
+- [ ] Syllabus upload and parsing
+- [ ] Assignment extraction
+- [ ] Intelligent scheduling recommendations
+- [ ] Workload forecasting
+- [ ] Burnout risk alerts
+
+---
+
+# 🚀 Motivation
+
+Students often know what needs to be done but struggle with:
+
+- What should I work on next?
+- How much work is realistic today?
+- Am I becoming overloaded?
+- How does my workload affect stress and burnout?
+
+This project explores whether scheduling systems can adapt to the user rather than simply storing tasks.
+
+---
+
+# ✨ Current Features
+
+## 📅 Scheduling System
+
+- Create tasks and events
+- Edit existing tasks
+- Delete tasks
+- Recurring task support
+- Task prioritization
+- Event descriptions
+
+## 📊 Wellness Tracking
+
+Daily metrics are collected for:
+
+- Stress
+- Energy
+- Mood
+- Burnout
+
+## 🗓 Calendar Interface
+
+- Interactive monthly calendar
+- Clickable day selection
+- Daily rating integration
+
+## ⚙️ Backend Services
+
+- FastAPI backend
+- Rating submission endpoints
+- Structured data collection pipeline
+
+---
+
+# 📈 Current Development Focus
+
+The project is currently transitioning from application development into data engineering and machine learning.
+
+Current work includes:
+
+- Data cleaning
+- Feature engineering
+- Exploratory analysis
+- Burnout prediction research
+
+Example features being explored:
+
+- Stress history
+- Energy trends
+- Mood trends
+- Burnout trends
+- Tasks due within 3 days
+- Tasks due within 7 days
+- Priority workload metrics
+- Schedule density
+
+---
+
+# 🛠 Technology Stack
+
+## Frontend
 - React
 - TypeScript
 - Vite
 
-### Backend *(planned)*
+## Backend
 - FastAPI
 - Python
 
-### Data / ML *(planned)*
+## Data Science & Machine Learning
 - Pandas
+- NumPy
 - Scikit-learn
-- Jupyter Notebook
+- Jupyter Notebooks
 
 ---
 
-## ✨ Features
+# 🤖 Planned Machine Learning Research
 
-### Current Features
-- Daily metric submission system
-- Interactive calendar interface
-- Modal popup for ratings
-- Multi-step metric input flow
-- State management using React hooks
+Research questions include:
 
-### Planned Features
-- Add/Edit/Delete schedule events
-- Event descriptions
-- Deadline tracking
-- Burnout analysis
-- Personalized recommendations
-- Data persistence
-- User accounts
+- Which features best predict burnout?
+- How far in advance can workload stress be detected?
+- Which machine learning models perform best?
+- Can scheduling recommendations reduce decision fatigue?
+
+Potential models:
+
+- Linear Regression
+- Random Forests
+- Gradient Boosting
+- Neural Networks
 
 ---
 
-# 🗺 Roadmap
+# 📚 Learning Objectives
 
-## Stage 1 — Core Scheduler + UI
+This project is being used to develop experience in:
 
-### Scheduling System
-- [ ] Add schedule events
-- [ ] Edit schedule events
-- [ ] Delete schedule events
-- [ ] Event descriptions
-- [ ] Event priorities
-- [ ] Recurring events
-
-### Calendar
-- [x] Calendar grid implemented
-- [x] Clickable day boxes
-- [x] Modal popup interaction
-- [x] Daily metric collection flow
-- [ ] Calendar visually reflects schedule
-- [ ] Deadline indicators
-
-### UI
-- [ ] Create custom UI theme/style
-- [ ] Improve responsiveness
-- [ ] Polish layouts and spacing
-- [ ] Improve visual feedback
+- Full-stack software development
+- Data engineering
+- Feature engineering
+- Machine learning workflows
+- Model evaluation
+- Human-centered AI systems
 
 ---
 
-## Stage 2 — Data Analysis + ML Exploration
-
-### Data Collection
-- [ ] Store user metrics
-- [ ] Store schedule history
-- [ ] Generate datasets
-
-### Analysis
-- [ ] Build notebook analyzing burnout patterns
-- [ ] Explore correlations between:
-    - Stress
-    - Energy
-    - Mood
-    - Burnout
-    - Workload
-    - Exams within a week
-    - Deadlines within a week
-
-### Machine Learning Research
-- [ ] Compare multiple ML methods
-- [ ] Determine best approach for predicting student workload/burnout
-- [ ] Document performance metrics
-- [ ] Export trained model to Python implementation
-
----
-
-## Stage 3 — Persistence + Scaling
-
-### Storage
-- [ ] Database integration
-- [ ] Data persistence
-- [ ] Save/load schedules
-
-### Accounts
-- [ ] User authentication
-- [ ] User profiles
-- [ ] Personalized settings
-
-### Future Ideas
-- [ ] Upload syllabus PDF
-- [ ] Extract assignment dates automatically
-- [ ] Upload screenshots for schedule parsing
-- [ ] To-do generation based on workload
-- [ ] Deadline prediction system
-- [ ] Hidden helper features (ex: deadlinesInAWeek)
-
----
-
-## 📈 Current Progress
-
-Project Status:
-
-🟨 Active Development
-
-Approximate progress:
-
-Core Functionality: ███████░░░ 70%  
-ML Features: █░░░░░░░░░ 10%  
-Persistence: ░░░░░░░░░░ 0%
-
----
-
-## Why this project?
-
-This project started as an attempt to solve a common problem among students:
-
-> "I know what I have to do, but deciding where to start is exhausting."
-
-Rather than creating another task manager, the goal is to build a system that eventually adapts to the user and helps reduce the mental effort of planning work.
-
----
-
-Built by Robin
+Built by Robin Liu
