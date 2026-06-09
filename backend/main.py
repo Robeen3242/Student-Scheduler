@@ -5,6 +5,8 @@ from typing import Literal
 from datetime import date 
 from pydantic import BaseModel, Field
 
+import features
+
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -20,6 +22,9 @@ class DailyRating(BaseModel):
     energy: int = Field(ge=0, le=10)
     mood: int = Field(ge=0, le=10)
     burnout: int = Field(ge=0, le=10)
+    sleep: int = Field(ge=0, le=10)
+    time_spent: float = Field(ge=0, le=24)
+    break_day: bool = False
 
 Recurrence = Literal["once", "daily", "weekly", "biweekly", "monthly"];
 
@@ -35,12 +40,13 @@ class ScheduleTask(BaseModel):
     taskId: str
     title: str
     description: str
+    courseId: str | None = None
     recurrence: Recurrence
     priority: int
+    exam: bool = False
     occurrences: list[ScheduleOccurrence]
 
 daily_ratings: dict[str, DailyRating] = {}
-ratings = list[DailyRating]()
 tasks = list[ScheduleTask]()
 
 @app.post("/ratings")
@@ -65,3 +71,13 @@ async def create_task(task: ScheduleTask):
 @app.get("/tasks")
 async def get_tasks():
     return {"tasks": tasks}
+
+
+@app.put("/tasks/{task_id}")
+async def update_task(task_id: str, task: ScheduleTask):
+    for index, saved_task in enumerate(tasks):
+        if saved_task.taskId == task_id:
+            tasks[index] = task
+            return {"message": "task updated", "task": task}
+    tasks.append(task)
+    return {"message": "task saved", "task": task}
