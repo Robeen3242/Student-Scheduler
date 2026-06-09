@@ -333,6 +333,75 @@ code {
   text-align: center;
 }
 
+.course-list {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.course-list-empty {
+  width: 100%;
+  margin: 0;
+  padding: 10px 12px;
+  color: var(--text-m);
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.025);
+  font-size: 13px;
+  text-align: center;
+}
+
+.course-box {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  color: var(--text-h);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #2b3746;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.course-box-remove {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--text-m);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  font: 700 12px/1 var(--sans);
+  cursor: pointer;
+}
+
+.course-box-remove:hover {
+  color: #ffffff;
+  border-color: #fca5a5;
+  background: rgba(239, 68, 68, 0.18);
+}
+
+.course-form-wrap {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.course-form-error {
+  margin: 8px 0 0 132px;
+  color: #fca5a5;
+  font-size: 13px;
+}
+
 .task-box {
   padding: 14px;
   color: var(--text);
@@ -481,8 +550,55 @@ code {
   outline-offset: 1px;
 }
 
+.task-field-disabled span {
+  color: var(--text-m);
+}
+
+.task-field input:disabled,
+.task-field select:disabled {
+  color: var(--text-m);
+  border-color: rgba(148, 163, 184, 0.18);
+  background: rgba(148, 163, 184, 0.08);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
 .task-priority-input {
   max-width: 120px;
+}
+
+.task-checkbox-field {
+  align-items: start;
+}
+
+.task-checkbox-field input[type="checkbox"] {
+  width: 18px;
+  min-height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--accent);
+}
+
+.task-field-helper {
+  margin: 4px 0 0;
+  color: var(--text-m);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.rating-checkbox-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.rating-checkbox-field input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
 }
 
 .task-form-actions {
@@ -541,6 +657,17 @@ code {
   border-color: var(--accent-border);
 }
 
+.app-button-course {
+  color: #172033;
+  border-color: #fde68a;
+  background: #facc15;
+}
+
+.app-button-course:hover {
+  border-color: #fef3c7;
+  background: #fde047;
+}
+
 .app-button-back {
   color: var(--text-h);
   background: transparent;
@@ -596,6 +723,10 @@ code {
   .task-field {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .course-form-error {
+    margin-left: 0;
   }
 
   .task-priority-input {

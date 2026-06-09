@@ -1,20 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
-import type { Recurrence, ScheduleTask, ScheduleOccurrence } from "../types/ScheduleTask";
+import type { Course, Recurrence, ScheduleTask, ScheduleOccurrence } from "../types/ScheduleTask";
 
 type TaskFormProps = {
   onSubmit: (task: ScheduleTask) => void;
   task?: ScheduleTask;
+  courses: Course[];
 }  
 
-function TaskForm({ onSubmit, task }: TaskFormProps) {
+function TaskForm({ onSubmit, task, courses }: TaskFormProps) {
   //Initializations
   const [title, setTitle] = useState(task?.title ?? "");
   const [description, setDescription] = useState(task?.description ?? "");
+  const [courseId, setCourseId] = useState(task?.courseId ?? "");
   const [recurrence, setRecurrence] = useState<Recurrence>(task?.recurrence ?? "once");
   const [priority, setPriority] = useState(task?.priority ?? 1);
+  const [exam, setExam] = useState(task?.exam ?? false);
   const [date_due, setDateDue] = useState(task?.occurrences[0]?.date_due ?? "");
   
+  useEffect(() => {
+    if (exam) {
+      setRecurrence("once");
+      setPriority(6);
+      return;
+    }
+
+    if (priority > 5) {
+      setPriority(5);
+    }
+  }, [exam, priority]);
 
   function getSemesterEndDate(date_due: Date) {
     const year = date_due.getFullYear();
@@ -39,12 +53,17 @@ function TaskForm({ onSubmit, task }: TaskFormProps) {
     // Handle form submission logic here
     e.preventDefault();
 
+    const taskRecurrence = exam ? "once" : recurrence;
+    const taskPriority = exam ? 6 : priority;
+
     const newTask: ScheduleTask = {
         taskId: task?.taskId ?? crypto.randomUUID(),
         title,
         description,
-        recurrence,
-        priority,
+        courseId: courseId || undefined,
+        recurrence: taskRecurrence,
+        priority: taskPriority,
+        exam,
         occurrences: task?.occurrences ?? [], // This will be populated based on the recurrence pattern
     };
 
@@ -59,8 +78,10 @@ function TaskForm({ onSubmit, task }: TaskFormProps) {
     //Set back to defautlt values
     setTitle("");
     setDescription("");
+    setCourseId("");
     setRecurrence("once");
     setPriority(1);
+    setExam(false);
     setDateDue("");
   }
 
@@ -70,6 +91,17 @@ function TaskForm({ onSubmit, task }: TaskFormProps) {
     const occurrences: ScheduleOccurrence[] = [];
     const currentDate = new Date(date_due);
     const endDate = getSemesterEndDate(currentDate);
+    if (task.recurrence === "once") {
+      occurrences.push({
+        id: crypto.randomUUID(),
+        taskId: task.taskId,
+        date_due: currentDate.toISOString().split("T")[0],
+        isCancelled: false,
+        isCompleted: false
+      });
+      return occurrences;
+    }
+
     const advanceDate = recurrenceMap[task.recurrence as Exclude<Recurrence, "once">];
     while (currentDate <= endDate) {
       occurrences.push({
@@ -112,10 +144,26 @@ function TaskForm({ onSubmit, task }: TaskFormProps) {
       </label>
 
       <label className="task-field">
+        <span>Course</span>
+        <select
+          value={courseId}
+          onChange={(e) => setCourseId(e.target.value)}
+        >
+          <option value="">Unassigned</option>
+          {courses.map((course) => (
+            <option key={course.id} value={course.id}>
+              {course.name}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <label className={`task-field ${exam ? "task-field-disabled" : ""}`}>
         <span>Recurrence</span>
         <select
           value={recurrence}
           onChange={(e) => setRecurrence(e.target.value as Recurrence)}
+          disabled={exam}
         >
           <option value="once">Once</option>
           <option value="daily">Daily</option>
@@ -125,7 +173,7 @@ function TaskForm({ onSubmit, task }: TaskFormProps) {
         </select>
       </label>
 
-      <label className="task-field">
+      <label className={`task-field ${exam ? "task-field-disabled" : ""}`}>
         <span>Priority</span>
         <input
           className="task-priority-input"
@@ -134,6 +182,7 @@ function TaskForm({ onSubmit, task }: TaskFormProps) {
           max={5}
           value={priority}
           onChange={(e) => setPriority(Number(e.target.value))}
+          disabled={exam}
         />
       </label>
 
@@ -144,6 +193,18 @@ function TaskForm({ onSubmit, task }: TaskFormProps) {
           value={date_due}
           onChange={(e) => setDateDue(e.target.value)}
         />
+      </label>
+
+      <label className="task-field task-checkbox-field">
+        <span>Exam</span>
+        <div>
+          <input
+            type="checkbox"
+            checked={exam}
+            onChange={(e) => setExam(e.target.checked)}
+          />
+          <p className="task-field-helper">Reserved for midterms and finals.</p>
+        </div>
       </label>
       <div className="task-form-actions">
         <button type="submit" className="app-button app-button-primary">

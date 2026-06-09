@@ -1,5 +1,5 @@
 import {useState} from "react";
-import type { ScheduleTask } from "../types/ScheduleTask";
+import type { Course, ScheduleTask } from "../types/ScheduleTask";
 import TaskForm from "./TaskForm";
 import TaskBox from "./TaskBox";
 
@@ -13,12 +13,57 @@ type ScheduleProps = {
 function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
 
   const [selectedTask, setSelectedTask] = useState<ScheduleTask | null>(null);
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [courseName, setCourseName] = useState("");
+  const [courseError, setCourseError] = useState("");
 
-  type scheduleView = "main" | "addTask" | "editTask";
+  type scheduleView = "main" | "addTask" | "addCourse" | "editTask";
   const [view, setView] = useState<scheduleView>("main");
 
   function addtask(newtask: ScheduleTask) {
     onAdd(newtask);
+    setView("main");
+  }
+
+  function addCourse() {
+    const trimmedCourse = courseName.trim();
+    if (!trimmedCourse) {
+      setCourseError("Enter a course name.");
+      return;
+    }
+
+    const alreadyExists = courses.some(course => course.name.toLowerCase() === trimmedCourse.toLowerCase());
+    if (alreadyExists) {
+      setCourseError("That course already exists.");
+      return;
+    }
+
+    setCourses(prev => [...prev, {
+      id: crypto.randomUUID(),
+      name: trimmedCourse,
+    }]);
+    setCourseName("");
+    setCourseError("");
+    setView("main");
+  }
+
+  function removeCourse(courseId: string) {
+    setCourses(prev => prev.filter(course => course.id !== courseId));
+    tasks
+      .filter(task => task.courseId === courseId)
+      .forEach(task => onUpdate({
+        ...task,
+        courseId: undefined,
+      }));
+  }
+
+  function getCourseName(courseId?: string) {
+    return courses.find(course => course.id === courseId)?.name;
+  }
+
+  function backToMain() {
+    setCourseName("");
+    setCourseError("");
     setView("main");
   }
 
@@ -56,9 +101,35 @@ function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
               }>
                 Add Task
               </button>
+              <button
+              className="app-button app-button-course"
+              onClick={() => setView("addCourse")}
+              >
+                Add Course
+              </button>
               <button className="app-button app-button-secondary" onClick={onClose}>
                 Close
               </button>
+            </div>
+
+            <div className="course-list">
+              {courses.length === 0 ? (
+                <p className="course-list-empty">No courses yet.</p>
+              ) : (
+                courses.map((course) => (
+                  <div className="course-box" key={course.id}>
+                    <span>{course.name}</span>
+                    <button
+                      className="course-box-remove"
+                      type="button"
+                      onClick={() => removeCourse(course.id)}
+                      aria-label={`Remove ${course.name}`}
+                    >
+                      x
+                    </button>
+                  </div>
+                ))
+              )}
             </div>
 
             <div className="task-list">
@@ -69,6 +140,7 @@ function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
                   <TaskBox 
                   key={task.taskId} 
                   task={task} 
+                  courseName={getCourseName(task.courseId)}
                   onClick={() => {
                     setSelectedTask(task);
                     setView("editTask");
@@ -80,16 +152,42 @@ function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
 
           {view === "addTask" && (
           <div className="schedule-form-panel">
-            <TaskForm onSubmit={addtask}/>
-            <button className="app-button app-button-back" onClick={() => setView("main")}>
+            <TaskForm onSubmit={addtask} courses={courses}/>
+            <button className="app-button app-button-back" onClick={backToMain}>
+              Back
+            </button>
+          </div>)}
+
+          {view === "addCourse" && (
+          <div className="schedule-form-panel">
+            <div className="course-form-wrap">
+              <label className="task-field">
+                <span>Course</span>
+                <input
+                  value={courseName}
+                  onChange={(e) => {
+                    setCourseName(e.target.value);
+                    setCourseError("");
+                  }}
+                  placeholder="MATH 101"
+                />
+              </label>
+              {courseError && <p className="course-form-error">{courseError}</p>}
+              <div className="task-form-actions">
+                <button className="app-button app-button-primary" onClick={addCourse}>
+                  Add Course
+                </button>
+              </div>
+            </div>
+            <button className="app-button app-button-back" onClick={backToMain}>
               Back
             </button>
           </div>)}
 
           {view === "editTask" && selectedTask && (
           <div className="schedule-form-panel">
-            <TaskForm onSubmit={updateTask} task={selectedTask}/>
-            <button className="app-button app-button-back" onClick={() => setView("main")}>
+            <TaskForm onSubmit={updateTask} task={selectedTask} courses={courses}/>
+            <button className="app-button app-button-back" onClick={backToMain}>
               Back
             </button>
           </div>)}

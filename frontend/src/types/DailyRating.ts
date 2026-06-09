@@ -4,4 +4,7 @@ export type DailyRating = {
     energy: number;
     mood: number;
     burnout: number;
+    sleep: number;
+    time_spent: number;
+    break_day: boolean;
 }
