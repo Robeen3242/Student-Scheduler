@@ -210,6 +210,7 @@ code {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 0;
   opacity: 0;
   background: var(--accent-bg);
   transition: opacity 0.2s ease;
@@ -276,13 +277,21 @@ code {
 .day-box-complete::after {
   opacity: 1;
   background:
-    radial-gradient(circle at 18px 18px, rgba(34, 197, 94, 0.22), transparent 48px),
-    rgba(34, 197, 94, 0.08);
+    radial-gradient(circle at 18px 18px, rgba(34, 197, 94, 0.16), transparent 52px),
+    rgba(34, 197, 94, 0.04);
 }
 
 .day-box-complete .day-box-date {
-  color: #166534;
-  background: rgba(34, 197, 94, 0.16);
+  color: var(--text-h);
+  background: rgba(34, 197, 94, 0.18);
+}
+
+.day-box-complete .calendar-task-chip {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.day-box-complete .calendar-task-title {
+  color: var(--text-h);
 }
 
 .day-box-complete:hover {
@@ -293,7 +302,7 @@ code {
 }
 
 .day-box-complete:hover .day-box-date {
-  color: #14532d;
+  color: var(--text-h);
   background: rgba(220, 252, 231, 0.96);
 }
 

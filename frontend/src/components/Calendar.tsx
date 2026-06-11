@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Schedule from "./Schedule";
 
 import type { DailyRating } from "../types/DailyRating";
-import type { ScheduleTask } from "../types/ScheduleTask";
+import type { Course, ScheduleTask } from "../types/ScheduleTask";
 import CalendarGrid from "./CalendarGrid";
 import RatingBox from "./RatingBox";
 import Modal from "./Modal";
@@ -51,6 +51,7 @@ function isDailyRatingComplete(rating: DailyRating) {
   );
 }
 
+
 function Calendar() {
   const today = new Date();
   const days = getCalendarDays(today.getFullYear(), today.getMonth())
@@ -66,6 +67,9 @@ function Calendar() {
   const[scheduleOpen, setScheduleOpen] = useState(false);
 
   const [tasks, setTasks] = useState<ScheduleTask[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
+
+  
 
   useEffect(() => {
     async function loadRatings() {
@@ -78,7 +82,18 @@ function Calendar() {
       }
     }
 
+    async function loadCourses() {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/courses");
+        const data = await response.json();
+        setCourses(data.courses ?? []);
+      } catch (error) {
+        console.warn("Unable to load courses", error);
+      }
+    }
+    loadCourses();
     loadRatings();
+    
   }, []);
 
   const completedRatingDates = new Set(
@@ -111,6 +126,22 @@ function Calendar() {
     });
     const data = await response.json();
     console.log(data);
+  }
+  async function addCourse(course: Course) {
+    setCourses(prev => [...prev, course]);
+  }
+
+  async function removeCourse(courseId: string) {
+    setCourses(prev => prev.filter(course => course.id !== courseId));
+    tasks
+      .filter(task => task.courseId === courseId)
+      .forEach(task => updateTask({
+        ...task,
+        courseId: undefined,
+      }));
+    await fetch(`http://127.0.0.1:8000/courses/${courseId}`, {
+      method: "DELETE",
+    });
   }
 
   return (
@@ -185,6 +216,9 @@ function Calendar() {
             tasks={tasks} 
             onAdd={addTask}
             onUpdate={updateTask}
+            courses={courses}
+            onAddCourse={addCourse}
+            onRemoveCourse={removeCourse}
             />
           </Modal>
         )}

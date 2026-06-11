@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useState } from "react";
 import type { Course, ScheduleTask } from "../types/ScheduleTask";
 import TaskForm from "./TaskForm";
 import TaskBox from "./TaskBox";
@@ -8,77 +8,41 @@ type ScheduleProps = {
   tasks: ScheduleTask[];
   onAdd: (task: ScheduleTask) => void;
   onUpdate: (task: ScheduleTask) => void;
+  courses: Course[];
+  onAddCourse: (course: Course) => void;
+  onRemoveCourse: (courseId: string) => void;
 }
 
-function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
+function Schedule({ onClose, tasks, onAdd, onUpdate, courses, onAddCourse, onRemoveCourse }: ScheduleProps) {
 
   const [selectedTask, setSelectedTask] = useState<ScheduleTask | null>(null);
-  const [courses, setCourses] = useState<Course[]>([]);
   const [courseName, setCourseName] = useState("");
   const [courseError, setCourseError] = useState("");
 
   type scheduleView = "main" | "addTask" | "addCourse" | "editTask";
   const [view, setView] = useState<scheduleView>("main");
 
-  useEffect(() => {
-    async function loadCourses() {
-      const response = await fetch("http://127.0.0.1:8000/courses");
-      const data = await response.json();
-      setCourses(data.courses ?? []);
-    }
-
-    loadCourses().catch((error) => {
-      console.error("Failed to load courses", error);
-    });
-  }, []);
-
-  function addtask(newtask: ScheduleTask) {
-    onAdd(newtask);
-    setView("main");
-  }
-
-  async function addCourse() {
-    const trimmedCourse = courseName.trim();
-    if (!trimmedCourse) {
-      setCourseError("Enter a course name.");
+  function handleAddCourse() {
+    if (!courseName.trim()) {
+      setCourseError("Course name is required");
       return;
     }
 
-    const alreadyExists = courses.some(course => course.name.toLowerCase() === trimmedCourse.toLowerCase());
-    if (alreadyExists) {
-      setCourseError("That course already exists.");
-      return;
-    }
-
-    const newCourse: Course = {
+    const newCourse = {
       id: crypto.randomUUID(),
-      name: trimmedCourse,
+      name: courseName.trim(),
     };
 
-    setCourses(prev => [...prev, newCourse]);
-    await fetch("http://127.0.0.1:8000/courses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newCourse),
-    });
+    onAddCourse(newCourse);
+
     setCourseName("");
     setCourseError("");
     setView("main");
   }
 
-  async function removeCourse(courseId: string) {
-    setCourses(prev => prev.filter(course => course.id !== courseId));
-    tasks
-      .filter(task => task.courseId === courseId)
-      .forEach(task => onUpdate({
-        ...task,
-        courseId: undefined,
-      }));
-    await fetch(`http://127.0.0.1:8000/courses/${courseId}`, {
-      method: "DELETE",
-    });
+  function addtask(newtask: ScheduleTask) {
+    onAdd(newtask);
+    setView("main");
   }
 
   function getCourseName(courseId?: string) {
@@ -96,7 +60,6 @@ function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
     onUpdate(updatedTask);
     setView("main");
   }
-
   return (
     <div>
       <div 
@@ -146,7 +109,7 @@ function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
                     <button
                       className="course-box-remove"
                       type="button"
-                      onClick={() => removeCourse(course.id)}
+                      onClick={() => onRemoveCourse(course.id)}
                       aria-label={`Remove ${course.name}`}
                     >
                       x
@@ -198,7 +161,7 @@ function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
               </label>
               {courseError && <p className="course-form-error">{courseError}</p>}
               <div className="task-form-actions">
-                <button className="app-button app-button-primary" onClick={addCourse}>
+                <button className="app-button app-button-primary" onClick={handleAddCourse}>
                   Add Course
                 </button>
               </div>
