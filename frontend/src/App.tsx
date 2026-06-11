@@ -14,10 +14,14 @@ function App() {
         {/* Page state block */}
         <div>
           {currentPage === "dashboard" &&(
-            <div>
+            <div className="dashboard-panel">
               <h2>Dashboard</h2>
-              <button type="button" onClick={() => setCurrentPage("calendar")}>
-                Go to Calendar
+              <button
+                type="button"
+                className="app-button app-button-calendar"
+                onClick={() => setCurrentPage("calendar")}
+              >
+                <span>Go to Calendar</span>
               </button>
             </div>
           )}

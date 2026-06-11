@@ -46,8 +46,13 @@ class ScheduleTask(BaseModel):
     exam: bool = False
     occurrences: list[ScheduleOccurrence]
 
+class Course(BaseModel):
+    id: str
+    name: str
+
 daily_ratings: dict[str, DailyRating] = {}
 tasks = list[ScheduleTask]()
+courses = list[Course]()
 
 @app.post("/ratings")
 async def create_rating(rating: DailyRating):
@@ -71,6 +76,30 @@ async def create_task(task: ScheduleTask):
 @app.get("/tasks")
 async def get_tasks():
     return {"tasks": tasks}
+
+
+@app.post("/courses")
+async def create_course(course: Course):
+    for index, saved_course in enumerate(courses):
+        if saved_course.id == course.id:
+            courses[index] = course
+            return {"message": "course updated", "course": course}
+    courses.append(course)
+    return {"message": "course saved", "course": course}
+
+
+@app.get("/courses")
+async def get_courses():
+    return {"courses": courses}
+
+
+@app.delete("/courses/{course_id}")
+async def delete_course(course_id: str):
+    courses[:] = [course for course in courses if course.id != course_id]
+    for task in tasks:
+        if task.courseId == course_id:
+            task.courseId = None
+    return {"message": "course deleted", "courses": courses}
 
 
 @app.put("/tasks/{task_id}")

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Schedule from "./Schedule";
 
 import type { DailyRating } from "../types/DailyRating";
@@ -34,17 +34,58 @@ function formatDate(date: Date) {
   return `${year}-${month}-${day}`;
 }
 
+const ratingNumberFields: (keyof Pick<DailyRating, "stress" | "burnout" | "energy" | "mood" | "sleep" | "time_spent">)[] = [
+  "stress",
+  "burnout",
+  "energy",
+  "mood",
+  "sleep",
+  "time_spent",
+];
+
+function isDailyRatingComplete(rating: DailyRating) {
+  return (
+    Boolean(rating.date) &&
+    ratingNumberFields.every((field) => Number.isFinite(rating[field])) &&
+    typeof rating.break_day === "boolean"
+  );
+}
+
 function Calendar() {
   const today = new Date();
   const days = getCalendarDays(today.getFullYear(), today.getMonth())
+  const currentMonthLabel = today.toLocaleString("default", {
+    month: "long",
+    year: "numeric",
+  });
   const[ratingOpen, setRatingOpen] = useState(false);
   const [selectedRatingDate, setSelectedRatingDate] = useState(formatDate(today));
-  const [, setRatings] = useState<DailyRating[]>([]);
+  const [ratings, setRatings] = useState<DailyRating[]>([]);
 
 
   const[scheduleOpen, setScheduleOpen] = useState(false);
 
   const [tasks, setTasks] = useState<ScheduleTask[]>([]);
+
+  useEffect(() => {
+    async function loadRatings() {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/ratings");
+        const data = await response.json();
+        setRatings(data.ratings ?? []);
+      } catch (error) {
+        console.warn("Unable to load ratings", error);
+      }
+    }
+
+    loadRatings();
+  }, []);
+
+  const completedRatingDates = new Set(
+    ratings
+      .filter(isDailyRatingComplete)
+      .map((rating) => rating.date)
+  );
 
   async function addTask(newTask: ScheduleTask) {
     setTasks(prev => [...prev, newTask]);
@@ -75,6 +116,15 @@ function Calendar() {
   return (
     <div className="calendar-page">
       <h2>Calendar</h2>
+      <div className="calendar-header">
+        <button className="app-button app-button-secondary calendar-nav-button" type="button">
+          Previous
+        </button>
+        <h3 className="calendar-month-title">{currentMonthLabel}</h3>
+        <button className="app-button app-button-secondary calendar-nav-button" type="button">
+          Next
+        </button>
+      </div>
         <CalendarGrid 
           days = {days}
           onDayClick={(day) => {
@@ -82,6 +132,7 @@ function Calendar() {
             setRatingOpen(true);
           }} 
           tasks={tasks}
+          completedRatingDates={completedRatingDates}
         />
         
         {/* Cover entire screen no matter where you scroll */}
@@ -98,7 +149,10 @@ function Calendar() {
               date={selectedRatingDate}
               onClose={() => setRatingOpen(false)}
               onSubmit={async (score) => {
-                setRatings(prev => [...prev, score]);
+                setRatings(prev => [
+                  ...prev.filter((rating) => rating.date !== score.date),
+                  score,
+                ]);
                 const response = await fetch("http://127.0.0.1:8000/ratings", {
                 method: "POST",
                 headers: {

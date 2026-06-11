@@ -7,11 +7,16 @@ type DayBoxProps = {
     onClick: () => void;
     passKey: Date;
     tasks: ScheduleTask[];
+    isCompleted: boolean;
 }
 
-function DayBox({ onClick, passKey, tasks }: DayBoxProps) {
+function DayBox({ onClick, passKey, tasks, isCompleted }: DayBoxProps) {
     return (
-        <button className="day-box" onClick={onClick} type="button">
+        <button
+            className={`day-box${isCompleted ? " day-box-complete" : ""}`}
+            onClick={onClick}
+            type="button"
+        >
             <span className="day-box-header">
                 <span className="day-box-date">{passKey.getDate()}</span>
             </span>

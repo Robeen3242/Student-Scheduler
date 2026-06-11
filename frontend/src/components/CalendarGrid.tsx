@@ -7,11 +7,12 @@ type CalendarGridProps = {
   days : (Date | null)[];
   onDayClick: (day: Date) => void;
   tasks : ScheduleTask[];
+  completedRatingDates: ReadonlySet<string>;
 };
 
 const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-function CalendarGrid({ days, onDayClick, tasks }: CalendarGridProps) {
+function CalendarGrid({ days, onDayClick, tasks, completedRatingDates }: CalendarGridProps) {
   return (
     <div className="calendar-grid">
       {weekdays.map((day) => (
@@ -24,7 +25,13 @@ function CalendarGrid({ days, onDayClick, tasks }: CalendarGridProps) {
       const dateString = day.toISOString().split("T")[0]; // "YYYY-MM-DD"
       const tasksForDay = tasks.filter(task => task.occurrences.some((occurrences) => occurrences.date_due === dateString));
       return (
-        <DayBox key={dateString} onClick={() => onDayClick(day)} passKey={day} tasks={tasksForDay} />
+        <DayBox
+          key={dateString}
+          onClick={() => onDayClick(day)}
+          passKey={day}
+          tasks={tasksForDay}
+          isCompleted={completedRatingDates.has(dateString)}
+        />
       );
       })}
     </div>

@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import type { Course, ScheduleTask } from "../types/ScheduleTask";
 import TaskForm from "./TaskForm";
 import TaskBox from "./TaskBox";
@@ -20,12 +20,24 @@ function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
   type scheduleView = "main" | "addTask" | "addCourse" | "editTask";
   const [view, setView] = useState<scheduleView>("main");
 
+  useEffect(() => {
+    async function loadCourses() {
+      const response = await fetch("http://127.0.0.1:8000/courses");
+      const data = await response.json();
+      setCourses(data.courses ?? []);
+    }
+
+    loadCourses().catch((error) => {
+      console.error("Failed to load courses", error);
+    });
+  }, []);
+
   function addtask(newtask: ScheduleTask) {
     onAdd(newtask);
     setView("main");
   }
 
-  function addCourse() {
+  async function addCourse() {
     const trimmedCourse = courseName.trim();
     if (!trimmedCourse) {
       setCourseError("Enter a course name.");
@@ -38,16 +50,25 @@ function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
       return;
     }
 
-    setCourses(prev => [...prev, {
+    const newCourse: Course = {
       id: crypto.randomUUID(),
       name: trimmedCourse,
-    }]);
+    };
+
+    setCourses(prev => [...prev, newCourse]);
+    await fetch("http://127.0.0.1:8000/courses", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCourse),
+    });
     setCourseName("");
     setCourseError("");
     setView("main");
   }
 
-  function removeCourse(courseId: string) {
+  async function removeCourse(courseId: string) {
     setCourses(prev => prev.filter(course => course.id !== courseId));
     tasks
       .filter(task => task.courseId === courseId)
@@ -55,6 +76,9 @@ function Schedule({ onClose, tasks, onAdd, onUpdate }: ScheduleProps) {
         ...task,
         courseId: undefined,
       }));
+    await fetch(`http://127.0.0.1:8000/courses/${courseId}`, {
+      method: "DELETE",
+    });
   }
 
   function getCourseName(courseId?: string) {

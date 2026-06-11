@@ -57,3 +57,67 @@ def getPrioritySum(current_date, days, tasks):
             if current_date <= due_date <= current_date + timedelta(days=days):
                 total += task.priority
     return total
+
+def getAveragePriority(current_date, days, tasks):
+    total = 0
+    count = 0
+    for task in tasks:
+        for occurrence in task.occurrences:
+            if occurrence.isCompleted:
+                continue
+            if occurrence.isCancelled:
+                continue
+            due_date = date.fromisoformat(occurrence.date_due)
+            if current_date <= due_date <= current_date + timedelta(days=days):
+                total += task.priority
+                count += 1
+    return total / count if count > 0 else None
+
+def getAveragePriorityPerTask(current_date, days, tasks):
+    return getAveragePriority(current_date, days, tasks)
+
+def getAvgPriority(current_date, days, tasks):
+    return getAveragePriority(current_date, days, tasks)
+
+def getMaxPriority(current_date, days, tasks):
+    max_priority = None
+    for task in tasks:
+        for occurrence in task.occurrences:
+            if occurrence.isCompleted:
+                continue
+            if occurrence.isCancelled:
+                continue
+            due_date = date.fromisoformat(occurrence.date_due)
+            if current_date <= due_date <= current_date + timedelta(days=days):
+                if max_priority is None or task.priority > max_priority:
+                    max_priority = task.priority
+    return max_priority
+
+def getCourseCount(tasks):
+    courses = set()
+    for task in tasks:
+        if task.courseId:
+            courses.add(task.courseId)
+    return len(courses)
+
+def getCourseCountInWindow(current_date, days, tasks):
+    courses = set()
+    for task in tasks:
+        if not task.courseId:
+            continue
+        for occurrence in task.occurrences:
+            if occurrence.isCompleted:
+                continue
+            if occurrence.isCancelled:
+                continue
+            due_date = date.fromisoformat(occurrence.date_due)
+            if current_date <= due_date <= current_date + timedelta(days=days):
+                courses.add(task.courseId)
+                break
+    return len(courses)
+
+def getCoursePriorityLoad(current_date, days, tasks):
+    avg_priority = getAveragePriority(current_date, days, tasks)
+    if avg_priority is None:
+        return None
+    return getCourseCountInWindow(current_date, days, tasks) * avg_priority
