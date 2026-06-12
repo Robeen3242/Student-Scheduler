@@ -1,7 +1,7 @@
 //Overlay of the calendar that shows the schedules
 import DayBox from "./DayBox";
-
 import type { ScheduleTask } from "../types/ScheduleTask";
+import {formatDate} from "../utils/dateUtils";
 
 type CalendarGridProps = {
   days : (Date | null)[];
@@ -22,7 +22,7 @@ function CalendarGrid({ days, onDayClick, tasks, completedRatingDates }: Calenda
           if (day === null) {
             return <div className="day-box-empty" key={`empty-${index}`} />;
           }
-      const dateString = day.toISOString().split("T")[0]; // "YYYY-MM-DD"
+      const dateString = formatDate(day); // "YYYY-MM-DD"
       const tasksForDay = tasks.filter(task => task.occurrences.some((occurrences) => occurrences.date_due === dateString));
       return (
         <DayBox

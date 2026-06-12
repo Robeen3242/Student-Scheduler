@@ -6,11 +6,11 @@ type CalendarTaskChipProps = {
 
 function CalendarTaskChip({ task }: CalendarTaskChipProps) {
   const priorityColors: { [key: number]: string } = {
-    1: "#ef4444", // red
-    2: "#f97316", // orange
+    5: "#ef4444", // red
+    4: "#f97316", // orange
     3: "#eab308", // yellow
-    4: "#84cc16", // lime
-    5: "#22c55e", // green
+    2: "#84cc16", // lime
+    1: "#22c55e", // green
   };
 
   return (

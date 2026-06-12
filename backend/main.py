@@ -5,7 +5,11 @@ from typing import Literal
 from datetime import date 
 from pydantic import BaseModel, Field
 
-import features
+import pandas as pd
+import os
+
+RATINGS_FILE = "ratings.csv"
+TASK_FILE = "tasks.csv"
 
 app = FastAPI()
 app.add_middleware(
@@ -51,13 +55,14 @@ class Course(BaseModel):
     name: str
 
 daily_ratings: dict[str, DailyRating] = {}
-tasks = list[ScheduleTask]()
-courses = list[Course]()
+tasks: list[ScheduleTask] = []
+courses: list[Course] = []
 
 @app.post("/ratings")
 async def create_rating(rating: DailyRating):
     day = rating.date.isoformat()
     daily_ratings[day] = rating
+    save_ratings_to_csv()
     return {"message": "saved", "rating": rating}
 
 
@@ -66,10 +71,16 @@ async def get_ratings():
     return {"ratings": list(daily_ratings.values())}
 
 
-@app.post("/tasks")
-async def create_task(task: ScheduleTask):
+@app.put("/tasks/{task_id}")
+async def update_task(task_id: str, task: ScheduleTask):
+    for index, saved_task in enumerate(tasks):
+        if saved_task.taskId == task_id:
+            tasks[index] = task
+            save_tasks_to_csv()
+            return {"message": "task updated", "task": task}
+
     tasks.append(task)
-    print(tasks)
+    save_tasks_to_csv()
     return {"message": "task saved", "task": task}
 
 
@@ -96,9 +107,13 @@ async def get_courses():
 @app.delete("/courses/{course_id}")
 async def delete_course(course_id: str):
     courses[:] = [course for course in courses if course.id != course_id]
+
     for task in tasks:
         if task.courseId == course_id:
             task.courseId = None
+
+    save_tasks_to_csv()
+
     return {"message": "course deleted", "courses": courses}
 
 
@@ -110,3 +125,30 @@ async def update_task(task_id: str, task: ScheduleTask):
             return {"message": "task updated", "task": task}
     tasks.append(task)
     return {"message": "task saved", "task": task}
+
+def save_ratings_to_csv():
+    rows = [rating.model_dump() for rating in daily_ratings.values()]
+    df = pd.DataFrame(rows)
+    df.to_csv(RATINGS_FILE, index=False)
+
+def save_tasks_to_csv():
+    rows = []
+    for task in tasks:
+        for occurrence in task.occurrences:
+            row = {
+                "taskId": task.taskId,
+                "title": task.title,
+                "description": task.description,
+                "courseId": task.courseId,
+                "recurrence": task.recurrence,
+                "priority": task.priority,
+                "exam": task.exam,
+                "occurrenceId": occurrence.id,
+                "date_due": occurrence.date_due,
+                "note": occurrence.note,
+                "isCompleted": occurrence.isCompleted,
+                "isCancelled": occurrence.isCancelled
+            }
+            rows.append(row)
+    df = pd.DataFrame(rows)
+    df.to_csv(TASK_FILE, index=False)

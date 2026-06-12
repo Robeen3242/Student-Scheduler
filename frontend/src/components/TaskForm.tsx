@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import {formatDate, getSemesterEndDate} from "../utils/dateUtils";
 import type { FormEvent } from "react";
 import type { Course, Recurrence, ScheduleTask, ScheduleOccurrence } from "../types/ScheduleTask";
+
 
 type TaskFormProps = {
   onSubmit: (task: ScheduleTask) => void;
@@ -29,18 +31,6 @@ function TaskForm({ onSubmit, task, courses }: TaskFormProps) {
       setPriority(5);
     }
   }, [exam, priority]);
-
-  function getSemesterEndDate(date_due: Date) {
-    const year = date_due.getFullYear();
-    const semseterEndDate = [
-      new Date(year, 3, 30),  // Spring: Apr 30
-      new Date(year, 5, 30),  // Summer: Jun 30
-      new Date(year, 7, 31),  // Fall-ish? Aug 31
-      new Date(year, 11, 31), // Winter/Fall end: Dec 31
-    ];
-    const dueDate = new Date(date_due);
-    return semseterEndDate.find(endDate => dueDate <= endDate) ?? semseterEndDate[semseterEndDate.length - 1];
-  }
 
   const recurrenceMap: Record<Exclude<Recurrence, "once">, (date: Date) => void> = {
     daily: (date) => date.setDate(date.getDate() + 1),
@@ -95,7 +85,7 @@ function TaskForm({ onSubmit, task, courses }: TaskFormProps) {
       occurrences.push({
         id: crypto.randomUUID(),
         taskId: task.taskId,
-        date_due: currentDate.toISOString().split("T")[0],
+        date_due: formatDate(currentDate),
         isCancelled: false,
         isCompleted: false
       });
@@ -107,7 +97,7 @@ function TaskForm({ onSubmit, task, courses }: TaskFormProps) {
       occurrences.push({
         id: crypto.randomUUID(),
         taskId: task.taskId,
-        date_due: currentDate.toISOString().split("T")[0],
+        date_due: formatDate(currentDate),
         isCancelled: false,
         isCompleted: false
       });
@@ -178,7 +168,7 @@ function TaskForm({ onSubmit, task, courses }: TaskFormProps) {
         <input
           className="task-priority-input"
           type="number"
-          min={1}
+          min={0}
           max={5}
           value={priority}
           onChange={(e) => setPriority(Number(e.target.value))}
