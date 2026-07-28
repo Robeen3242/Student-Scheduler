@@ -1,0 +1,77 @@
+taskId,title,description,courseId,recurrence,priority,exam,occurrenceId,date_due,note,isCompleted,isCancelled
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-01,2023-09-11,Assignment 1; estimated due date,True,False
+chem103-assignment,CHEM 103 Biweekly Assignment,Biweekly CHEM 103 assignment; remembered as not very hard.,CHEM103,biweekly,2,False,chem103-assignment-occ-01,2023-09-13,Assignment 1,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-01,2023-09-14,Lab quiz 1,True,False
+math100-assignment,MATH 100 Biweekly Assignment,Biweekly MATH 100 assignment; remembered as extremely hard.,MATH100,biweekly,5,False,math100-assignment-occ-01,2023-09-15,Assignment 1,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-02,2023-09-18,Assignment 2; estimated due date,True,False
+chem103-lab-report,CHEM 103 Lab Report,Lab report due one week after the alternating in-person CHEM lab.,CHEM103,biweekly,3,False,chem103-lab-report-occ-01,2023-09-19,Lab report 1; lab held 2023-09-12,True,False
+phys130-lab,PHYS 130 Lab,Alternating PHYS 130 lab; remembered as easy.,PHYS130,biweekly,2,False,phys130-lab-occ-01,2023-09-19,Lab 1,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-02,2023-09-21,Lab quiz 2,True,False
+engg100-assignment-1,ENGG 100 Assignment 1,"One of six ENGG 100 assignments; generally easy, with variable time requirements.",ENGG100,once,1,False,engg100-assignment-1-occ-01,2023-09-22,Estimated date,True,False
+encmp100-assignment,ENCMP 100 Assignment,Biweekly assignment associated with very easy lab/help periods. Due dates reconstructed.,ENCMP100,biweekly,2,False,encmp100-assignment-occ-01,2023-09-24,Assignment 1; estimated due date,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-03,2023-09-25,Assignment 3; estimated due date,True,False
+chem103-assignment,CHEM 103 Biweekly Assignment,Biweekly CHEM 103 assignment; remembered as not very hard.,CHEM103,biweekly,2,False,chem103-assignment-occ-02,2023-09-27,Assignment 2,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-03,2023-09-28,Lab quiz 3,True,False
+math100-assignment,MATH 100 Biweekly Assignment,Biweekly MATH 100 assignment; remembered as extremely hard.,MATH100,biweekly,5,False,math100-assignment-occ-02,2023-09-29,Assignment 2,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-04,2023-10-02,Assignment 4; estimated due date,True,False
+chem103-lab-report,CHEM 103 Lab Report,Lab report due one week after the alternating in-person CHEM lab.,CHEM103,biweekly,3,False,chem103-lab-report-occ-02,2023-10-03,Lab report 2; lab held 2023-09-26,True,False
+phys130-lab,PHYS 130 Lab,Alternating PHYS 130 lab; remembered as easy.,PHYS130,biweekly,2,False,phys130-lab-occ-02,2023-10-03,Lab 2,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-04,2023-10-05,Lab quiz 4,True,False
+engg100-assignment-2,ENGG 100 Assignment 2,"One of six ENGG 100 assignments; generally easy, with variable time requirements.",ENGG100,once,1,False,engg100-assignment-2-occ-01,2023-10-06,Estimated date,True,False
+encmp100-assignment,ENCMP 100 Assignment,Biweekly assignment associated with very easy lab/help periods. Due dates reconstructed.,ENCMP100,biweekly,2,False,encmp100-assignment-occ-02,2023-10-08,Assignment 2; estimated due date,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-05,2023-10-09,Assignment 5; estimated due date,True,False
+chem103-assignment,CHEM 103 Biweekly Assignment,Biweekly CHEM 103 assignment; remembered as not very hard.,CHEM103,biweekly,2,False,chem103-assignment-occ-03,2023-10-11,Assignment 3,True,False
+chem103-midterm-1,CHEM 103 Midterm 1,Midterm date reconstructed because the exact historical date was not remembered.,CHEM103,once,4,True,chem103-midterm-1-occ-01,2023-10-12,Estimated date,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-05,2023-10-12,Lab quiz 5,True,False
+math100-assignment,MATH 100 Biweekly Assignment,Biweekly MATH 100 assignment; remembered as extremely hard.,MATH100,biweekly,5,False,math100-assignment-occ-03,2023-10-13,Assignment 3,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-06,2023-10-16,Assignment 6; estimated due date,True,False
+chem103-lab-report,CHEM 103 Lab Report,Lab report due one week after the alternating in-person CHEM lab.,CHEM103,biweekly,3,False,chem103-lab-report-occ-03,2023-10-17,Lab report 3; lab held 2023-10-10,True,False
+phys130-lab,PHYS 130 Lab,Alternating PHYS 130 lab; remembered as easy.,PHYS130,biweekly,2,False,phys130-lab-occ-03,2023-10-17,Lab 3,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-06,2023-10-19,Lab quiz 6,True,False
+math100-midterm,MATH 100 Midterm,Midterm date reconstructed because the exact historical date was not remembered.,MATH100,once,5,True,math100-midterm-occ-01,2023-10-19,Estimated date,True,False
+engg100-assignment-3,ENGG 100 Assignment 3,"One of six ENGG 100 assignments; generally easy, with variable time requirements.",ENGG100,once,2,False,engg100-assignment-3-occ-01,2023-10-20,Estimated date,True,False
+encmp100-assignment,ENCMP 100 Assignment,Biweekly assignment associated with very easy lab/help periods. Due dates reconstructed.,ENCMP100,biweekly,2,False,encmp100-assignment-occ-03,2023-10-22,Assignment 3; estimated due date,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-07,2023-10-23,Assignment 7; estimated due date,True,False
+phys130-midterm-1,PHYS 130 Midterm 1,Midterm date reconstructed because the exact historical date was not remembered.,PHYS130,once,4,True,phys130-midterm-1-occ-01,2023-10-24,Estimated date,True,False
+chem103-assignment,CHEM 103 Biweekly Assignment,Biweekly CHEM 103 assignment; remembered as not very hard.,CHEM103,biweekly,2,False,chem103-assignment-occ-04,2023-10-25,Assignment 4,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-07,2023-10-26,Lab quiz 7,True,False
+math100-assignment,MATH 100 Biweekly Assignment,Biweekly MATH 100 assignment; remembered as extremely hard.,MATH100,biweekly,5,False,math100-assignment-occ-04,2023-10-27,Assignment 4,True,False
+engg130-midterm,ENGG 130 Midterm,Midterm date reconstructed because the exact historical date was not remembered.,ENGG130,once,5,True,engg130-midterm-occ-01,2023-10-30,Estimated date,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-08,2023-10-30,Assignment 8; estimated due date,True,False
+chem103-lab-report,CHEM 103 Lab Report,Lab report due one week after the alternating in-person CHEM lab.,CHEM103,biweekly,3,False,chem103-lab-report-occ-04,2023-10-31,Lab report 4; lab held 2023-10-24,True,False
+phys130-lab,PHYS 130 Lab,Alternating PHYS 130 lab; remembered as easy.,PHYS130,biweekly,2,False,phys130-lab-occ-04,2023-10-31,Lab 4,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-08,2023-11-02,Lab quiz 8,True,False
+engg100-assignment-4,ENGG 100 Assignment 4,"One of six ENGG 100 assignments; generally easy, with variable time requirements.",ENGG100,once,1,False,engg100-assignment-4-occ-01,2023-11-03,Estimated date,True,False
+encmp100-assignment,ENCMP 100 Assignment,Biweekly assignment associated with very easy lab/help periods. Due dates reconstructed.,ENCMP100,biweekly,2,False,encmp100-assignment-occ-04,2023-11-05,Assignment 4; estimated due date,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-09,2023-11-06,Assignment 9; estimated due date,True,False
+chem103-assignment,CHEM 103 Biweekly Assignment,Biweekly CHEM 103 assignment; remembered as not very hard.,CHEM103,biweekly,2,False,chem103-assignment-occ-05,2023-11-08,Assignment 5,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-09,2023-11-09,Lab quiz 9,True,False
+math100-assignment,MATH 100 Biweekly Assignment,Biweekly MATH 100 assignment; remembered as extremely hard.,MATH100,biweekly,5,False,math100-assignment-occ-05,2023-11-10,Assignment 5,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-10,2023-11-13,Assignment 10; estimated due date,True,False
+chem103-lab-report,CHEM 103 Lab Report,Lab report due one week after the alternating in-person CHEM lab.,CHEM103,biweekly,3,False,chem103-lab-report-occ-05,2023-11-14,Lab report 5; lab held 2023-11-07,True,False
+phys130-lab,PHYS 130 Lab,Alternating PHYS 130 lab; remembered as easy.,PHYS130,biweekly,2,False,phys130-lab-occ-05,2023-11-14,Lab 5,True,False
+chem103-midterm-2,CHEM 103 Midterm 2,Midterm date reconstructed because the exact historical date was not remembered.,CHEM103,once,4,True,chem103-midterm-2-occ-01,2023-11-16,Estimated date,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-10,2023-11-16,Lab quiz 10,True,False
+engg100-assignment-5,ENGG 100 Assignment 5,"One of six ENGG 100 assignments; generally easy, with variable time requirements.",ENGG100,once,3,False,engg100-assignment-5-occ-01,2023-11-17,Estimated date,True,False
+encmp100-assignment,ENCMP 100 Assignment,Biweekly assignment associated with very easy lab/help periods. Due dates reconstructed.,ENCMP100,biweekly,2,False,encmp100-assignment-occ-05,2023-11-19,Assignment 5; estimated due date,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-11,2023-11-20,Assignment 11; estimated due date,True,False
+phys130-midterm-2,PHYS 130 Midterm 2,Midterm date reconstructed because the exact historical date was not remembered.,PHYS130,once,4,True,phys130-midterm-2-occ-01,2023-11-21,Estimated date,True,False
+chem103-assignment,CHEM 103 Biweekly Assignment,Biweekly CHEM 103 assignment; remembered as not very hard.,CHEM103,biweekly,2,False,chem103-assignment-occ-06,2023-11-22,Assignment 6,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-11,2023-11-23,Lab quiz 11,True,False
+math100-assignment,MATH 100 Biweekly Assignment,Biweekly MATH 100 assignment; remembered as extremely hard.,MATH100,biweekly,5,False,math100-assignment-occ-06,2023-11-24,Assignment 6,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-12,2023-11-27,Assignment 12; estimated due date,True,False
+chem103-lab-report,CHEM 103 Lab Report,Lab report due one week after the alternating in-person CHEM lab.,CHEM103,biweekly,3,False,chem103-lab-report-occ-06,2023-11-28,Lab report 6; lab held 2023-11-21,True,False
+phys130-lab,PHYS 130 Lab,Alternating PHYS 130 lab; remembered as easy.,PHYS130,biweekly,2,False,phys130-lab-occ-06,2023-11-28,Lab 6,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-12,2023-11-30,Lab quiz 12,True,False
+engg100-assignment-6,ENGG 100 Assignment 6,"One of six ENGG 100 assignments; generally easy, with variable time requirements.",ENGG100,once,2,False,engg100-assignment-6-occ-01,2023-12-01,Estimated date,True,False
+encmp100-assignment,ENCMP 100 Assignment,Biweekly assignment associated with very easy lab/help periods. Due dates reconstructed.,ENCMP100,biweekly,2,False,encmp100-assignment-occ-06,2023-12-03,Assignment 6; estimated due date,True,False
+phys130-assignment,PHYS 130 Weekly Assignment,Weekly PHYS 130 assignment; remembered as easy. Monday due dates are reconstructed.,PHYS130,weekly,2,False,phys130-assignment-occ-13,2023-12-04,Assignment 13; estimated due date,True,False
+chem103-assignment,CHEM 103 Biweekly Assignment,Biweekly CHEM 103 assignment; remembered as not very hard.,CHEM103,biweekly,2,False,chem103-assignment-occ-07,2023-12-06,Assignment 7,True,False
+engg130-lab-quiz,ENGG 130 Lab Quiz,Weekly in-person ENGG 130 lab quiz; remembered as very hard.,ENGG130,weekly,5,False,engg130-lab-quiz-occ-13,2023-12-07,Lab quiz 13,True,False
+math100-assignment,MATH 100 Biweekly Assignment,Biweekly MATH 100 assignment; remembered as extremely hard.,MATH100,biweekly,5,False,math100-assignment-occ-07,2023-12-08,Assignment 7,True,False
+math100-final,MATH 100 Final,Final exam date supplied by the user.,MATH100,once,5,True,math100-final-occ-01,2023-12-09,Known date,True,False
+chem103-final,CHEM 103 Final,Final exam date supplied by the user.,CHEM103,once,5,True,chem103-final-occ-01,2023-12-11,Known date,True,False
+chem103-lab-report,CHEM 103 Lab Report,Lab report due one week after the alternating in-person CHEM lab.,CHEM103,biweekly,3,False,chem103-lab-report-occ-07,2023-12-12,Lab report 7; lab held 2023-12-05,True,False
+engg130-final,ENGG 130 Final,Final exam date supplied by the user.,ENGG130,once,5,True,engg130-final-occ-01,2023-12-16,Known date,True,False
+encmp100-final,ENCMP 100 Final,Final exam date supplied by the user.,ENCMP100,once,4,True,encmp100-final-occ-01,2023-12-18,Known date,True,False
+phys130-final,PHYS 130 Final,Final exam date supplied by the user.,PHYS130,once,5,True,phys130-final-occ-01,2023-12-21,Known date,True,False

@@ -1,0 +1,72 @@
+taskId,title,description,courseId,recurrence,priority,exam,occurrenceId,date_due,note,isCompleted,isCancelled
+cmput272-6a216f4c,CMPUT 272 Timed Seminar Quiz 1,Biweekly timed in-person seminar quiz; manageable but requires preparation,CMPUT272,biweekly,3,False,occ-d62b742809,2025-01-14,Reconstructed consistent Tuesday seminar schedule,True,False
+cmput272-63f973c6,CMPUT 272 Timed Seminar Quiz 2,Biweekly timed in-person seminar quiz; manageable but requires preparation,CMPUT272,biweekly,3,False,occ-04358c840e,2025-01-28,Reconstructed consistent Tuesday seminar schedule,True,False
+cmput272-410d8873,CMPUT 272 Timed Seminar Quiz 3,Biweekly timed in-person seminar quiz; manageable but requires preparation,CMPUT272,biweekly,3,False,occ-87414954c8,2025-02-11,Reconstructed consistent Tuesday seminar schedule,True,False
+cmput272-250a42dc,CMPUT 272 Timed Seminar Quiz 4,Biweekly timed in-person seminar quiz; manageable but requires preparation,CMPUT272,biweekly,3,False,occ-9863573cb6,2025-02-25,Reconstructed consistent Tuesday seminar schedule,True,False
+cmput272-8f6b29da,CMPUT 272 Timed Seminar Quiz 5,Biweekly timed in-person seminar quiz; manageable but requires preparation,CMPUT272,biweekly,3,False,occ-c7dc712536,2025-03-11,Reconstructed consistent Tuesday seminar schedule,True,False
+cmput272-449c9cc6,CMPUT 272 Timed Seminar Quiz 6,Biweekly timed in-person seminar quiz; manageable but requires preparation,CMPUT272,biweekly,3,False,occ-6017059859,2025-03-25,Reconstructed consistent Tuesday seminar schedule,True,False
+cmput272-5b96a0bf,CMPUT 272 Midterm 1,First midterm,CMPUT272,once,5,True,occ-69a368578b,2025-02-11,Estimated date,True,False
+cmput272-ab0fb32c,CMPUT 272 Midterm 2,Second midterm,CMPUT272,once,5,True,occ-f3b2f59756,2025-03-18,Estimated date,True,False
+cmput272-111550cb,CMPUT 272 Final,"Final exam at 5:30 PM, 3 hours",CMPUT272,once,6,True,occ-e9cd55f007,2025-04-12,Known final date,True,False
+phys230-cf6d17a4,PHYS 230 Lab 1,Biweekly in-person lab; generally not difficult,PHYS230,biweekly,2,False,occ-d0641bdd47,2025-01-16,Thursday lab schedule reconstructed from timetable,True,False
+phys230-a95f163d,PHYS 230 Lab 2,Biweekly in-person lab; generally not difficult,PHYS230,biweekly,2,False,occ-b271dec5c9,2025-01-30,Thursday lab schedule reconstructed from timetable,True,False
+phys230-b984a1db,PHYS 230 Lab 3,Biweekly in-person lab; generally not difficult,PHYS230,biweekly,2,False,occ-654721d14f,2025-02-13,Thursday lab schedule reconstructed from timetable,True,False
+phys230-77bcc167,PHYS 230 Lab 4,Biweekly in-person lab; generally not difficult,PHYS230,biweekly,2,False,occ-2922bee61f,2025-02-27,Thursday lab schedule reconstructed from timetable,True,False
+phys230-72c015ee,PHYS 230 Lab 5,Biweekly in-person lab; generally not difficult,PHYS230,biweekly,2,False,occ-7440827f72,2025-03-13,Thursday lab schedule reconstructed from timetable,True,False
+phys230-9e21bba6,PHYS 230 Lab 6,Biweekly in-person lab; generally not difficult,PHYS230,biweekly,2,False,occ-f74ab8ce3b,2025-03-27,Thursday lab schedule reconstructed from timetable,True,False
+phys230-139e479e,PHYS 230 Assignment 1,Easy biweekly assignment,PHYS230,biweekly,2,False,occ-45a8d97692,2025-01-17,Consistent reconstructed Friday due date,True,False
+phys230-99f0f62a,PHYS 230 Assignment 2,Easy biweekly assignment,PHYS230,biweekly,2,False,occ-3198726d50,2025-01-31,Consistent reconstructed Friday due date,True,False
+phys230-5261b5c5,PHYS 230 Assignment 3,Easy biweekly assignment,PHYS230,biweekly,2,False,occ-216e8a4ba9,2025-02-14,Consistent reconstructed Friday due date,True,False
+phys230-3e928fb7,PHYS 230 Assignment 4,Easy biweekly assignment,PHYS230,biweekly,2,False,occ-ebe4878557,2025-02-28,Consistent reconstructed Friday due date,True,False
+phys230-96c770aa,PHYS 230 Assignment 5,Easy biweekly assignment,PHYS230,biweekly,2,False,occ-96e0e3eff2,2025-03-14,Consistent reconstructed Friday due date,True,False
+phys230-511d169c,PHYS 230 Assignment 6,Easy biweekly assignment,PHYS230,biweekly,2,False,occ-01461548c3,2025-03-28,Consistent reconstructed Friday due date,True,False
+phys230-8667d5ad,PHYS 230 Midterm,Course midterm,PHYS230,once,5,True,occ-d5ac1647eb,2025-02-24,Estimated date,True,False
+phys230-79104216,PHYS 230 Final,"Final exam at 1:00 PM, 3 hours",PHYS230,once,6,True,occ-9728026f87,2025-04-14,Known final date,True,False
+ece240-d34bacd2,ECE 240 Problem Set 1,Moderate content but substantial independent learning burden,ECE240,biweekly,4,False,occ-8c21d2920c,2025-01-24,Estimated recurring due date,True,False
+ece240-8fac48f3,ECE 240 Problem Set 2,Moderate content but substantial independent learning burden,ECE240,biweekly,4,False,occ-2958b4787c,2025-02-07,Estimated recurring due date,True,False
+ece240-d902b81a,ECE 240 Problem Set 3,Moderate content but substantial independent learning burden,ECE240,biweekly,4,False,occ-6f7efe82c0,2025-02-21,Estimated recurring due date,True,False
+ece240-d6388dda,ECE 240 Problem Set 4,Moderate content but substantial independent learning burden,ECE240,biweekly,4,False,occ-73e9d9f4f6,2025-03-07,Estimated recurring due date,True,False
+ece240-c926942c,ECE 240 Problem Set 5,Moderate content but substantial independent learning burden,ECE240,biweekly,4,False,occ-e46cf8f6b0,2025-03-21,Estimated recurring due date,True,False
+ece240-bebacdcd,ECE 240 Problem Set 6,Moderate content but substantial independent learning burden,ECE240,biweekly,4,False,occ-c6572e42a3,2025-04-04,Estimated recurring due date,True,False
+ece240-e5024fbc,ECE 240 Midterm,High-stress midterm due to poor instruction and limited learning resources,ECE240,once,6,True,occ-4420aaf012,2025-03-03,Estimated date,True,False
+ece240-eb3f095d,ECE 240 Final,High-stress final at 1:00 PM,ECE240,once,6,True,occ-11dca9d6b9,2025-04-15,Known final date,True,False
+ece212-2136f430,ECE 212 Lab Report 1,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-7a9afb1856,2025-01-15,Lab held 2025-01-08; report due before the next Wednesday lab,True,False
+ece212-5ca892ca,ECE 212 Lab Report 2,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-63abc132f6,2025-01-22,Lab held 2025-01-15; report due before the next Wednesday lab,True,False
+ece212-5b045485,ECE 212 Lab Report 3,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-59cd5d9c76,2025-01-29,Lab held 2025-01-22; report due before the next Wednesday lab,True,False
+ece212-9017a6e7,ECE 212 Lab Report 4,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-b0943510ec,2025-02-05,Lab held 2025-01-29; report due before the next Wednesday lab,True,False
+ece212-26d63e9e,ECE 212 Lab Report 5,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-44d47b3a80,2025-02-12,Lab held 2025-02-05; report due before the next Wednesday lab,True,False
+ece212-f8973879,ECE 212 Lab Report 6,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-df0b55e3c0,2025-02-19,Lab held 2025-02-12; report due before the next Wednesday lab,True,False
+ece212-a1e15bf1,ECE 212 Lab Report 7,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-43513f6180,2025-02-26,Lab held 2025-02-19; report due before the next Wednesday lab,True,False
+ece212-93d8bdfe,ECE 212 Lab Report 8,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-300becefb6,2025-03-05,Lab held 2025-02-26; report due before the next Wednesday lab,True,False
+ece212-32534044,ECE 212 Lab Report 9,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-10413e27da,2025-03-12,Lab held 2025-03-05; report due before the next Wednesday lab,True,False
+ece212-bf6a4071,ECE 212 Lab Report 10,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-2387693814,2025-03-19,Lab held 2025-03-12; report due before the next Wednesday lab,True,False
+ece212-c35a6e69,ECE 212 Lab Report 11,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-4f1138d686,2025-03-26,Lab held 2025-03-19; report due before the next Wednesday lab,True,False
+ece212-65bbb866,ECE 212 Lab Report 12,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-cd5b836575,2025-04-02,Lab held 2025-03-26; report due before the next Wednesday lab,True,False
+ece212-b5091486,ECE 212 Lab Report 13,"Moderately difficult lab report, usually finishable within one day",ECE212,weekly,3,False,occ-6ad571ec7f,2025-04-09,Lab held 2025-04-02; report due before the next Wednesday lab,True,False
+ece212-1f4134ac,ECE 212 Assignment 1,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-c54981c6da,2025-01-10,Consistent reconstructed Friday due date,True,False
+ece212-7355df32,ECE 212 Assignment 2,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-e187ab0637,2025-01-17,Consistent reconstructed Friday due date,True,False
+ece212-1d4eefc7,ECE 212 Assignment 3,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-cef3b75047,2025-01-24,Consistent reconstructed Friday due date,True,False
+ece212-3eb66741,ECE 212 Assignment 4,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-dedabd1046,2025-01-31,Consistent reconstructed Friday due date,True,False
+ece212-027ce7fe,ECE 212 Assignment 5,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-1bdcf62ceb,2025-02-07,Consistent reconstructed Friday due date,True,False
+ece212-6ba5e941,ECE 212 Assignment 6,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-1e966d19f4,2025-02-14,Consistent reconstructed Friday due date,True,False
+ece212-c6ac52a4,ECE 212 Assignment 7,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-444eeb4cea,2025-02-21,Consistent reconstructed Friday due date,True,False
+ece212-fc4906cb,ECE 212 Assignment 8,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-80b3cc9daf,2025-02-28,Consistent reconstructed Friday due date,True,False
+ece212-90508821,ECE 212 Assignment 9,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-118a3c533e,2025-03-07,Consistent reconstructed Friday due date,True,False
+ece212-c9ce2ac5,ECE 212 Assignment 10,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-396027e1df,2025-03-14,Consistent reconstructed Friday due date,True,False
+ece212-2190648e,ECE 212 Assignment 11,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-b2fec8f2b0,2025-03-21,Consistent reconstructed Friday due date,True,False
+ece212-22003b3a,ECE 212 Assignment 12,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-ed0598d1bd,2025-03-28,Consistent reconstructed Friday due date,True,False
+ece212-699aeab9,ECE 212 Assignment 13,"Easy weekly assignment, normally finishable within one day",ECE212,weekly,2,False,occ-ca9ed769c7,2025-04-04,Consistent reconstructed Friday due date,True,False
+ece212-6237a567,ECE 212 Midterm,Course midterm,ECE212,once,5,True,occ-dbe425fc74,2025-02-26,Estimated date,True,False
+ece212-1f5a4025,ECE 212 Final,Final exam at 8:30 AM,ECE212,once,6,True,occ-7a149c84ac,2025-04-16,Known final date,True,False
+cmput275-da52f257,CMPUT 275 Assignment 1,Challenging and stressful assignment with only a one-week completion window,CMPUT275,biweekly,5,False,occ-0b8f26fdc4,2025-01-23,Released 2025-01-16; due one week later,True,False
+cmput275-e66ffc04,CMPUT 275 Assignment 2,Challenging and stressful assignment with only a one-week completion window,CMPUT275,biweekly,5,False,occ-df8418c141,2025-02-06,Released 2025-01-30; due one week later,True,False
+cmput275-e3212681,CMPUT 275 Assignment 3,Challenging and stressful assignment with only a one-week completion window,CMPUT275,biweekly,5,False,occ-7364567493,2025-02-20,Released 2025-02-13; due one week later,True,False
+cmput275-a1a2317d,CMPUT 275 Assignment 4,Challenging and stressful assignment with only a one-week completion window,CMPUT275,biweekly,5,False,occ-f5025d67d1,2025-03-06,Released 2025-02-27; due one week later,True,False
+cmput275-d7aad3dd,CMPUT 275 Assignment 5,Challenging and stressful assignment with only a one-week completion window,CMPUT275,biweekly,5,False,occ-106732d59d,2025-03-20,Released 2025-03-13; due one week later,True,False
+cmput275-8eebdc96,CMPUT 275 Assignment 6,Challenging and stressful assignment with only a one-week completion window,CMPUT275,biweekly,5,False,occ-b35bee2467,2025-04-03,Released 2025-03-27; due one week later,True,False
+cmput275-f066677c,CMPUT 275 Midterm,Challenging course midterm,CMPUT275,once,6,True,occ-aa0ae008b1,2025-03-06,Estimated date,True,False
+cmput275-761d5c79,CMPUT 275 Final,"Final exam at 1:00 PM, 2.5 hours",CMPUT275,once,6,True,occ-fc0fb8adff,2025-04-24,Known final date,True,False
+ling101-a44e8c59,LING 101 Activity 1,Low-stakes activity in a very easy course,LING101,once,1,False,occ-4402b13bd3,2025-01-31,Synthetic low-impact task,True,False
+ling101-c897a528,LING 101 Activity 2,Low-stakes activity in a very easy course,LING101,once,1,False,occ-f5d5363562,2025-02-28,Synthetic low-impact task,True,False
+ling101-51d652f3,LING 101 Activity 3,Low-stakes activity in a very easy course,LING101,once,1,False,occ-6f7aed5e14,2025-03-28,Synthetic low-impact task,True,False
+ling101-b2a20898,LING 101 Final Quiz,Low-stakes final assessment,LING101,once,2,True,occ-83ac4ad89b,2025-04-08,Estimated,True,False

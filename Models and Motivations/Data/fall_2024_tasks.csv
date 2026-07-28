@@ -1,0 +1,59 @@
+taskId,title,description,courseId,recurrence,priority,exam,occurrenceId,date_due,note,isCompleted,isCancelled
+cmput274-7383e860,CMPUT 274 Assignment 1,Biweekly programming assignment,CMPUT274,biweekly,4,False,occ-b2870391d9,2024-09-13,Consistent reconstructed due weekday,True,False
+cmput274-0ae9af1e,CMPUT 274 Assignment 2,Biweekly programming assignment,CMPUT274,biweekly,4,False,occ-f893e27bf6,2024-09-27,Consistent reconstructed due weekday,True,False
+cmput274-a6ee4bef,CMPUT 274 Assignment 3,Biweekly programming assignment,CMPUT274,biweekly,4,False,occ-99414e1298,2024-10-11,Consistent reconstructed due weekday,True,False
+cmput274-584afe2c,CMPUT 274 Assignment 4,Biweekly programming assignment,CMPUT274,biweekly,4,False,occ-12d4d12404,2024-10-25,Consistent reconstructed due weekday,True,False
+cmput274-88700129,CMPUT 274 Assignment 5,Biweekly programming assignment,CMPUT274,biweekly,4,False,occ-ff36286f31,2024-11-08,Consistent reconstructed due weekday,True,False
+cmput274-244e7b7c,CMPUT 274 Assignment 6,Biweekly programming assignment,CMPUT274,biweekly,4,False,occ-0052945b87,2024-11-22,Consistent reconstructed due weekday,True,False
+cmput274-9924e953,CMPUT 274 Midterm,Estimated midterm date,CMPUT274,once,5,True,occ-b78bcfd093,2024-10-22,Estimated,True,False
+cmput274-885397cf,CMPUT 274 Final,Final exam at 8:30 AM,CMPUT274,once,6,True,occ-617955e162,2024-12-13,Known final date,True,False
+ece202-75691833,ECE 202 Lab Report 1,Easy report due at the next Wednesday lab time,ECE202,biweekly,2,False,occ-454cc26552,2024-09-18,Lab held 2024-09-11; due exactly one week later,True,False
+ece202-42d013e5,ECE 202 Lab Report 2,Easy report due at the next Wednesday lab time,ECE202,biweekly,2,False,occ-d77d6aebcf,2024-10-02,Lab held 2024-09-25; due exactly one week later,True,False
+ece202-25af2e55,ECE 202 Lab Report 3,Easy report due at the next Wednesday lab time,ECE202,biweekly,2,False,occ-58b238bb08,2024-10-16,Lab held 2024-10-09; due exactly one week later,True,False
+ece202-6f4c77ae,ECE 202 Lab Report 4,Easy report due at the next Wednesday lab time,ECE202,biweekly,2,False,occ-fa20187906,2024-10-30,Lab held 2024-10-23; due exactly one week later,True,False
+ece202-a6e77f6b,ECE 202 Lab Report 5,Easy report due at the next Wednesday lab time,ECE202,biweekly,2,False,occ-a237b312f5,2024-11-13,Lab held 2024-11-06; due exactly one week later,True,False
+ece202-daf0b01d,ECE 202 Lab Report 6,Easy report due at the next Wednesday lab time,ECE202,biweekly,2,False,occ-017856c920,2024-11-27,Lab held 2024-11-20; due exactly one week later,True,False
+ece202-f15a4978,ECE 202 Assignment 1,Long but not conceptually difficult assignment,ECE202,biweekly,4,False,occ-dfa4e8778c,2024-09-20,Estimated consistent due weekday,True,False
+ece202-c810ed8a,ECE 202 Assignment 2,Long but not conceptually difficult assignment,ECE202,biweekly,4,False,occ-d659198a75,2024-10-04,Estimated consistent due weekday,True,False
+ece202-ef3035d7,ECE 202 Assignment 3,Long but not conceptually difficult assignment,ECE202,biweekly,4,False,occ-d52f50b809,2024-10-18,Estimated consistent due weekday,True,False
+ece202-2b2dc4f7,ECE 202 Assignment 4,Long but not conceptually difficult assignment,ECE202,biweekly,4,False,occ-c3a1933e78,2024-11-01,Estimated consistent due weekday,True,False
+ece202-6296ae35,ECE 202 Assignment 5,Long but not conceptually difficult assignment,ECE202,biweekly,4,False,occ-0eeda0a3ab,2024-11-15,Estimated consistent due weekday,True,False
+ece202-a5a7b2b3,ECE 202 Assignment 6,Long but not conceptually difficult assignment,ECE202,biweekly,4,False,occ-f862cabf41,2024-11-29,Estimated consistent due weekday,True,False
+ece202-b043c735,ECE 202 Midterm,Notoriously difficult midterm in a difficult course,ECE202,once,6,True,occ-9c0213d6e1,2024-10-17,Estimated,True,False
+ece202-a609aacb,ECE 202 Final,Notoriously difficult final at 1:00 PM,ECE202,once,6,True,occ-33e248eaa5,2024-12-16,Known final date,True,False
+ece210-0bf73db9,ECE 210 Lab 1,In-person lab that was a recurring source of concern,ECE210,biweekly,4,False,occ-6d92eb6654,2024-09-18,Alternates Wednesdays with ECE 202,True,False
+ece210-dbdb998b,ECE 210 Lab 2,In-person lab that was a recurring source of concern,ECE210,biweekly,4,False,occ-f64c7957b2,2024-10-02,Alternates Wednesdays with ECE 202,True,False
+ece210-33c0a183,ECE 210 Lab 3,In-person lab that was a recurring source of concern,ECE210,biweekly,4,False,occ-69dca99eda,2024-10-16,Alternates Wednesdays with ECE 202,True,False
+ece210-9384b508,ECE 210 Lab 4,In-person lab that was a recurring source of concern,ECE210,biweekly,4,False,occ-28a43094ba,2024-10-30,Alternates Wednesdays with ECE 202,True,False
+ece210-6dbff89e,ECE 210 Lab 5,In-person lab that was a recurring source of concern,ECE210,biweekly,4,False,occ-0fa7329f94,2024-11-13,Alternates Wednesdays with ECE 202,True,False
+ece210-12e3cdfc,ECE 210 Lab 6,In-person lab that was a recurring source of concern,ECE210,biweekly,4,False,occ-4fc634817d,2024-11-27,Alternates Wednesdays with ECE 202,True,False
+ece210-22b8a1c5,ECE 210 Assignment 1,Moderate assignment; content was manageable,ECE210,biweekly,3,False,occ-190a8689ba,2024-09-27,Estimated consistent due weekday,True,False
+ece210-163392af,ECE 210 Assignment 2,Moderate assignment; content was manageable,ECE210,biweekly,3,False,occ-6976c212c6,2024-10-11,Estimated consistent due weekday,True,False
+ece210-014758f2,ECE 210 Assignment 3,Moderate assignment; content was manageable,ECE210,biweekly,3,False,occ-6f2c667be8,2024-10-25,Estimated consistent due weekday,True,False
+ece210-6b94f2a3,ECE 210 Assignment 4,Moderate assignment; content was manageable,ECE210,biweekly,3,False,occ-1f67e0b7ff,2024-11-08,Estimated consistent due weekday,True,False
+ece210-2dd9b677,ECE 210 Assignment 5,Moderate assignment; content was manageable,ECE210,biweekly,3,False,occ-fd5ed59d70,2024-11-22,Estimated consistent due weekday,True,False
+ece210-0fb94f55,ECE 210 Midterm,Moderate-to-hard midterm,ECE210,once,5,True,occ-7a9dd4e78c,2024-10-29,Estimated,True,False
+ece210-d4fdd355,ECE 210 Final,"Final exam at 8:30 AM, 2.5 hours",ECE210,once,6,True,occ-98b763068e,2024-12-18,Known final date,True,False
+math201-ed8a6d09,MATH 201 Assignment 1,Moderate assignment in a manageable course,MATH201,biweekly,3,False,occ-7f718c2903,2024-09-19,Estimated consistent due weekday,True,False
+math201-f8cec06f,MATH 201 Assignment 2,Moderate assignment in a manageable course,MATH201,biweekly,3,False,occ-f553c3a137,2024-10-03,Estimated consistent due weekday,True,False
+math201-65fac731,MATH 201 Assignment 3,Moderate assignment in a manageable course,MATH201,biweekly,3,False,occ-e78ac1d185,2024-10-17,Estimated consistent due weekday,True,False
+math201-19e15830,MATH 201 Assignment 4,Moderate assignment in a manageable course,MATH201,biweekly,3,False,occ-ea6a147859,2024-10-31,Estimated consistent due weekday,True,False
+math201-80e9b0f9,MATH 201 Assignment 5,Moderate assignment in a manageable course,MATH201,biweekly,3,False,occ-3cd55f16b2,2024-11-14,Estimated consistent due weekday,True,False
+math201-023a8785,MATH 201 Assignment 6,Moderate assignment in a manageable course,MATH201,biweekly,3,False,occ-0d411d2ef0,2024-11-28,Estimated consistent due weekday,True,False
+math201-fdddba2a,MATH 201 Midterm,Estimated midterm date,MATH201,once,5,True,occ-ac1db9e8d8,2024-10-24,Estimated,True,False
+math201-03e02fd8,MATH 201 Final,Final exam at 1:00 PM,MATH201,once,6,True,occ-6b63bb0615,2024-12-14,Known final date,True,False
+math209-c46a042a,MATH 209 Assignment 1,Very difficult assignment,MATH209,biweekly,5,False,occ-d166c0e93b,2024-09-16,Estimated consistent due weekday,True,False
+math209-7466c53b,MATH 209 Assignment 2,Very difficult assignment,MATH209,biweekly,5,False,occ-1fb5cbbe48,2024-09-30,Estimated consistent due weekday,True,False
+math209-18c95911,MATH 209 Assignment 3,Very difficult assignment,MATH209,biweekly,5,False,occ-5ea2f7e440,2024-10-14,Estimated consistent due weekday,True,False
+math209-3749d7e0,MATH 209 Assignment 4,Very difficult assignment,MATH209,biweekly,5,False,occ-cb07bf241d,2024-10-28,Estimated consistent due weekday,True,False
+math209-df5e9d36,MATH 209 Assignment 5,Very difficult assignment,MATH209,biweekly,5,False,occ-db223df5b4,2024-11-11,Estimated consistent due weekday,True,False
+math209-ec3e7e43,MATH 209 Assignment 6,Very difficult assignment,MATH209,biweekly,5,False,occ-957a120bf6,2024-11-25,Estimated consistent due weekday,True,False
+math209-72002080,MATH 209 Lab Quiz 1,Difficult in-person lab quiz,MATH209,once,5,False,occ-5ba3e99e15,2024-09-23,Reconstructed date,True,False
+math209-ef525b76,MATH 209 Lab Quiz 2,Difficult in-person lab quiz,MATH209,once,5,False,occ-f2feaeff7e,2024-10-07,Reconstructed date,True,False
+math209-076c8d6b,MATH 209 Lab Quiz 3,Difficult in-person lab quiz,MATH209,once,5,False,occ-d5a0548c75,2024-10-28,Reconstructed date,True,False
+math209-a8f3e25a,MATH 209 Lab Quiz 4,Difficult in-person lab quiz,MATH209,once,5,False,occ-2af14c9988,2024-11-18,Reconstructed date,True,False
+math209-03f067b0,MATH 209 Midterm,Difficult midterm,MATH209,once,6,True,occ-996a74293e,2024-10-21,Estimated,True,False
+math209-e5e7112c,MATH 209 Final,Final exam at 5:30 PM,MATH209,once,6,True,occ-3cbd9f35f0,2024-12-11,Known final date,True,False
+engg299-da9b5dc2,ENGG 299 Activity 1,Low-stakes activity in a very easy course,ENGG299,once,1,False,occ-9f5f8693db,2024-09-30,Synthetic low-impact task,True,False
+engg299-bdd0feca,ENGG 299 Activity 2,Low-stakes activity in a very easy course,ENGG299,once,1,False,occ-caffe3f02e,2024-10-28,Synthetic low-impact task,True,False
+engg299-35eeb190,ENGG 299 Activity 3,Low-stakes activity in a very easy course,ENGG299,once,1,False,occ-6eec8aa8d8,2024-11-25,Synthetic low-impact task,True,False

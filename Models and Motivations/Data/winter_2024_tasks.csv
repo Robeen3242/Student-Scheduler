@@ -1,0 +1,64 @@
+taskId,title,description,courseId,recurrence,priority,exam,occurrenceId,date_due,note,isCompleted,isCancelled
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-1,2024-01-12,A1,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-2,2024-01-19,A2,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-3,2024-01-26,A3,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-4,2024-02-02,A4,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-5,2024-02-09,A5,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-6,2024-02-16,A6,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-7,2024-02-23,A7,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-8,2024-03-01,A8,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-9,2024-03-08,A9,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-10,2024-03-15,A10,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-11,2024-03-22,A11,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-12,2024-03-29,A12,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-13,2024-04-05,A13,True,False
+math102-asg,MATH102 Weekly Assignment,Reconstructed,MATH102,weekly,2,False,math102-asg-14,2024-04-12,A14,True,False
+math102-mid,MATH102 Midterm,Estimated,MATH102,once,4,True,math102-mid-1,2024-02-29,,True,False
+math102-final,MATH102 Final,Known,MATH102,once,5,True,math102-final-1,2024-04-16,,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-1,2024-01-15,S1,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-2,2024-01-22,S2,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-3,2024-01-29,S3,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-4,2024-02-05,S4,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-5,2024-02-12,S5,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-6,2024-02-19,S6,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-7,2024-02-26,S7,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-8,2024-03-04,S8,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-9,2024-03-11,S9,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-10,2024-03-18,S10,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-11,2024-03-25,S11,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-12,2024-04-01,S12,True,False
+enph-sem,ENPH131 Seminar,Weekly graded,ENPH131,weekly,4,False,enph-sem-13,2024-04-08,S13,True,False
+enph-lab,ENPH131 Lab Report,Week after lab,ENPH131,biweekly,2,False,enph-lab-1,2024-01-17,L1,True,False
+enph-lab,ENPH131 Lab Report,Week after lab,ENPH131,biweekly,2,False,enph-lab-2,2024-01-31,L2,True,False
+enph-lab,ENPH131 Lab Report,Week after lab,ENPH131,biweekly,2,False,enph-lab-3,2024-02-14,L3,True,False
+enph-lab,ENPH131 Lab Report,Week after lab,ENPH131,biweekly,2,False,enph-lab-4,2024-02-28,L4,True,False
+enph-lab,ENPH131 Lab Report,Week after lab,ENPH131,biweekly,2,False,enph-lab-5,2024-03-13,L5,True,False
+enph-lab,ENPH131 Lab Report,Week after lab,ENPH131,biweekly,2,False,enph-lab-6,2024-03-27,L6,True,False
+enph-lab,ENPH131 Lab Report,Week after lab,ENPH131,biweekly,2,False,enph-lab-7,2024-04-10,L7,True,False
+enph-mid,ENPH131 Midterm,Estimated,ENPH131,once,4,True,enph-mid-1,2024-03-07,,True,False
+enph-final,ENPH131 Final,Known,ENPH131,once,5,True,enph-final-1,2024-04-15,,True,False
+math101-asg,MATH101 Assignment,Biweekly,MATH101,biweekly,5,False,math101-asg-1,2024-01-19,A1,True,False
+math101-asg,MATH101 Assignment,Biweekly,MATH101,biweekly,5,False,math101-asg-2,2024-02-02,A2,True,False
+math101-asg,MATH101 Assignment,Biweekly,MATH101,biweekly,5,False,math101-asg-3,2024-02-16,A3,True,False
+math101-asg,MATH101 Assignment,Biweekly,MATH101,biweekly,5,False,math101-asg-4,2024-03-01,A4,True,False
+math101-asg,MATH101 Assignment,Biweekly,MATH101,biweekly,5,False,math101-asg-5,2024-03-15,A5,True,False
+math101-asg,MATH101 Assignment,Biweekly,MATH101,biweekly,5,False,math101-asg-6,2024-03-29,A6,True,False
+math101-asg,MATH101 Assignment,Biweekly,MATH101,biweekly,5,False,math101-asg-7,2024-04-12,A7,True,False
+math101-quiz,MATH101 Lab Quiz,Quiz,MATH101,once,5,False,math101-quiz-1,2024-01-22,Q1,True,False
+math101-quiz,MATH101 Lab Quiz,Quiz,MATH101,once,5,False,math101-quiz-2,2024-02-12,Q2,True,False
+math101-quiz,MATH101 Lab Quiz,Quiz,MATH101,once,5,False,math101-quiz-3,2024-03-04,Q3,True,False
+math101-quiz,MATH101 Lab Quiz,Quiz,MATH101,once,5,False,math101-quiz-4,2024-03-25,Q4,True,False
+math101-mid,MATH101 Midterm,Estimated,MATH101,once,4,True,math101-mid-1,2024-02-28,,True,False
+math101-final,MATH101 Final,Known,MATH101,once,5,True,math101-final-1,2024-04-13,,True,False
+chem105-report,CHEM105 Lab Homework,Week after lab,CHEM105,biweekly,3,False,chem105-report-1,2024-01-17,L1,True,False
+chem105-report,CHEM105 Lab Homework,Week after lab,CHEM105,biweekly,3,False,chem105-report-2,2024-01-31,L2,True,False
+chem105-report,CHEM105 Lab Homework,Week after lab,CHEM105,biweekly,3,False,chem105-report-3,2024-02-14,L3,True,False
+chem105-report,CHEM105 Lab Homework,Week after lab,CHEM105,biweekly,3,False,chem105-report-4,2024-02-28,L4,True,False
+chem105-report,CHEM105 Lab Homework,Week after lab,CHEM105,biweekly,3,False,chem105-report-5,2024-03-13,L5,True,False
+chem105-report,CHEM105 Lab Homework,Week after lab,CHEM105,biweekly,3,False,chem105-report-6,2024-03-27,L6,True,False
+chem105-report,CHEM105 Lab Homework,Week after lab,CHEM105,biweekly,3,False,chem105-report-7,2024-04-10,L7,True,False
+chem105-mid1,CHEM105 Midterm1,Estimated,CHEM105,once,4,True,chem105-mid1-1,2024-02-15,,True,False
+chem105-mid2,CHEM105 Midterm2,Estimated,CHEM105,once,4,True,chem105-mid2-1,2024-03-21,,True,False
+chem105-final,CHEM105 Final,Known,CHEM105,once,5,True,chem105-final-1,2024-04-20,,True,False
+engl-pres,ENGL199 Presentation,Estimated,ENGL199,once,2,False,engl-pres-1,2024-03-28,,True,False
+engl-report,ENGL199 Disaster Report,End project,ENGL199,once,3,False,engl-report-1,2024-04-22,,True,False

@@ -1,0 +1,43 @@
+taskId,title,description,courseId,recurrence,priority,exam,occurrenceId,date_due,note,isCompleted,isCancelled
+engg404-069b6507,ENGG 404 Assignment 1,Easy but time-consuming monthly safety-course assignment,ENGG404,once,2,False,occ-f460680bea,2026-01-30,Reconstructed monthly due date,True,False
+engg404-9a56d32c,ENGG 404 Assignment 2,Easy but time-consuming monthly safety-course assignment,ENGG404,once,2,False,occ-a4b9864a4e,2026-02-27,Reconstructed monthly due date,True,False
+engg404-f871ea3f,ENGG 404 Assignment 3,Easy but time-consuming monthly safety-course assignment,ENGG404,once,2,False,occ-f32c890269,2026-03-27,Reconstructed monthly due date,True,False
+engg404-a69101cb,ENGG 404 Final,"Safety-course final exam at 5:30 PM, 3 hours",ENGG404,once,4,True,occ-554d156755,2026-04-23,Known final date,True,False
+om252-1f48c6d5,OM 252 Assignment 1,Very easy weekly online assignment,OM252,weekly,1,False,occ-652962ee1b,2026-01-11,Consistent reconstructed Sunday due date,True,False
+om252-721596a5,OM 252 Assignment 2,Very easy weekly online assignment,OM252,weekly,1,False,occ-19318a036d,2026-01-18,Consistent reconstructed Sunday due date,True,False
+om252-a4e1f4e3,OM 252 Assignment 3,Very easy weekly online assignment,OM252,weekly,1,False,occ-a31d3478b0,2026-01-25,Consistent reconstructed Sunday due date,True,False
+om252-9532ec9e,OM 252 Assignment 4,Very easy weekly online assignment,OM252,weekly,1,False,occ-121ae6c5c4,2026-02-01,Consistent reconstructed Sunday due date,True,False
+om252-5a7cc9a4,OM 252 Assignment 5,Very easy weekly online assignment,OM252,weekly,1,False,occ-cb81db625b,2026-02-08,Consistent reconstructed Sunday due date,True,False
+om252-fa2d4176,OM 252 Assignment 6,Very easy weekly online assignment,OM252,weekly,1,False,occ-36b1c6246d,2026-02-15,Consistent reconstructed Sunday due date,True,False
+om252-28761948,OM 252 Assignment 7,Very easy weekly online assignment,OM252,weekly,1,False,occ-23a0d853d4,2026-02-22,Consistent reconstructed Sunday due date,True,False
+om252-e9e38295,OM 252 Assignment 8,Very easy weekly online assignment,OM252,weekly,1,False,occ-7aeb10f34e,2026-03-01,Consistent reconstructed Sunday due date,True,False
+om252-f9e70d1b,OM 252 Assignment 9,Very easy weekly online assignment,OM252,weekly,1,False,occ-cf54709ed3,2026-03-08,Consistent reconstructed Sunday due date,True,False
+om252-e5f7c88b,OM 252 Assignment 10,Very easy weekly online assignment,OM252,weekly,1,False,occ-799b0018d2,2026-03-15,Consistent reconstructed Sunday due date,True,False
+om252-2ef0b57b,OM 252 Assignment 11,Very easy weekly online assignment,OM252,weekly,1,False,occ-83e1742d37,2026-03-22,Consistent reconstructed Sunday due date,True,False
+om252-e9e57188,OM 252 Assignment 12,Very easy weekly online assignment,OM252,weekly,1,False,occ-c8c8b4c772,2026-03-29,Consistent reconstructed Sunday due date,True,False
+om252-882d8169,OM 252 Assignment 13,Very easy weekly online assignment,OM252,weekly,1,False,occ-6ebae5b9f2,2026-04-05,Consistent reconstructed Sunday due date,True,False
+om252-f5db5e5c,OM 252 Midterm 1,Easy online-course midterm,OM252,once,3,True,occ-a4cd5e11c9,2026-02-10,Estimated date,True,False
+om252-1982ce09,OM 252 Midterm 2,Easy online-course midterm,OM252,once,3,True,occ-bc08118f43,2026-03-17,Estimated date,True,False
+om252-013f5231,OM 252 Final,"Final exam at 5:30 PM, 3 hours",OM252,once,4,True,occ-23ab78a27c,2026-04-17,Known final date,True,False
+ece315-2ccdc99f,ECE 315 Lab 1,Difficult in-person lab requiring additional work outside scheduled lab time,ECE315,biweekly,5,False,occ-d8dd4fb4bb,2026-01-08,Biweekly Thursday lab reconstructed from timetable,True,False
+ece315-6b586b2a,ECE 315 Lab 2,Difficult in-person lab requiring additional work outside scheduled lab time,ECE315,biweekly,5,False,occ-5744606890,2026-01-22,Biweekly Thursday lab reconstructed from timetable,True,False
+ece315-eb649079,ECE 315 Lab 3,Difficult in-person lab requiring additional work outside scheduled lab time,ECE315,biweekly,5,False,occ-c9850a950b,2026-02-05,Biweekly Thursday lab reconstructed from timetable,True,False
+ece315-8e0abd46,ECE 315 Lab 4,Difficult in-person lab requiring additional work outside scheduled lab time,ECE315,biweekly,5,False,occ-299681d6e9,2026-02-19,Biweekly Thursday lab reconstructed from timetable,True,False
+ece315-6bdbfcd1,ECE 315 Lab 5,Difficult in-person lab requiring additional work outside scheduled lab time,ECE315,biweekly,5,False,occ-b7e0d1a555,2026-03-05,Biweekly Thursday lab reconstructed from timetable,True,False
+ece315-2834cea9,ECE 315 Lab 6,Difficult in-person lab requiring additional work outside scheduled lab time,ECE315,biweekly,5,False,occ-1932d36b4e,2026-03-19,Biweekly Thursday lab reconstructed from timetable,True,False
+ece315-c4b36c3d,ECE 315 Lab 7,Difficult in-person lab requiring additional work outside scheduled lab time,ECE315,biweekly,5,False,occ-6e36d11f0c,2026-04-02,Biweekly Thursday lab reconstructed from timetable,True,False
+ece315-52f3ad4b,ECE 315 Assignment 1,Moderate assignment,ECE315,once,3,False,occ-8eba984463,2026-01-30,Irregular reconstructed due date,True,False
+ece315-70dfb72c,ECE 315 Assignment 2,Difficult assignment,ECE315,once,4,False,occ-7b1a7268d9,2026-02-20,Irregular reconstructed due date,True,False
+ece315-35318161,ECE 315 Assignment 3,Very time-consuming assignment,ECE315,once,5,False,occ-7da260156a,2026-03-20,Irregular reconstructed due date,True,False
+ece315-e16c4865,ECE 315 Assignment 4,More manageable final assignment,ECE315,once,3,False,occ-37d8c7f400,2026-04-03,Irregular reconstructed due date,True,False
+ece315-f3263b47,ECE 315 Quiz 1,In-person course quiz approximately three weeks apart,ECE315,once,4,False,occ-d6ff6fd724,2026-01-22,Reconstructed date,True,False
+ece315-7e8df7d7,ECE 315 Quiz 2,In-person course quiz approximately three weeks apart,ECE315,once,4,False,occ-2b97eeb66c,2026-02-12,Reconstructed date,True,False
+ece315-5c75d420,ECE 315 Quiz 3,In-person course quiz approximately three weeks apart,ECE315,once,4,False,occ-3922bc8b39,2026-03-05,Reconstructed date,True,False
+ece315-9975f28e,ECE 315 Quiz 4,In-person course quiz approximately three weeks apart,ECE315,once,4,False,occ-f82015c350,2026-03-26,Reconstructed date,True,False
+ece315-d6e9ec03,ECE 315 Final,Difficult final exam at 1:00 PM,ECE315,once,6,True,occ-9ec1efddcf,2026-04-22,Known final date,True,False
+ece447-ce36e40a,ECE 447 Assignment 1,Relatively easy first machine-learning assignment,ECE447,once,2,False,occ-e6880d6ebb,2026-01-23,Reconstructed due date; later assignments heavily weighted,True,False
+ece447-b09b62bc,ECE 447 Assignment 2,Very difficult and time-consuming assignment,ECE447,once,5,False,occ-729d3be01a,2026-02-13,Reconstructed due date; later assignments heavily weighted,True,False
+ece447-724a3f9d,ECE 447 Assignment 3,Very difficult and time-consuming assignment,ECE447,once,5,False,occ-a89c2c4669,2026-03-06,Reconstructed due date; later assignments heavily weighted,True,False
+ece447-2345da62,ECE 447 Assignment 4,Very difficult and time-consuming assignment,ECE447,once,5,False,occ-d0f29b5839,2026-03-27,Reconstructed due date; later assignments heavily weighted,True,False
+ece447-9b46ce8c,ECE 447 Midterm,Very difficult machine-learning midterm,ECE447,once,6,True,occ-92e9e37253,2026-03-03,Estimated date,True,False
+ece447-33a713bb,ECE 447 Final,"Very difficult final exam at 1:00 PM, 2.5 hours",ECE447,once,6,True,occ-14086d2a54,2026-04-21,Known final date,True,False
