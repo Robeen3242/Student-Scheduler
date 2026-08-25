@@ -76,6 +76,17 @@ def getWeightedMovingAverage(feature, current_date, days, ratings_df):
 
 
 
+def getBurnout(current_date, ratings_df):
+    current_date = pd.to_datetime(current_date).date()
+    rating_dates = pd.to_datetime(ratings_df["date"]).dt.date
+    burnout_values = ratings_df.loc[rating_dates == current_date, "burnout"]
+
+    if burnout_values.empty:
+        return None
+
+    return burnout_values.iloc[0]
+
+
 def countUpcomingTasks(current_date, days, tasks_df, exam=False):
     # Calculates incomplete, active task occurrences due within n days.
     return len(_active_task_window(tasks_df, current_date, days, exam=exam))
