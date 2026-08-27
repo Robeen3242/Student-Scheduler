@@ -20,13 +20,11 @@ def _active_task_window(tasks_df, current_date, days=None, exam=None):
 
     current_date = pd.to_datetime(current_date)
     due_dates = pd.to_datetime(tasks_df["date_due"])
-    completed = _as_bool_series(tasks_df["isCompleted"])
     cancelled = _as_bool_series(tasks_df["isCancelled"])
     exams = _as_bool_series(tasks_df["exam"])
 
     window = (
         (due_dates >= current_date)
-        & ~completed
         & ~cancelled
     )
 
@@ -88,16 +86,28 @@ def getBurnout(current_date, ratings_df):
 
 
 def countUpcomingTasks(current_date, days, tasks_df, exam=False):
-    # Calculates incomplete, active task occurrences due within n days.
+    # Calculates non-cancelled task occurrences due within n days.
     return len(_active_task_window(tasks_df, current_date, days, exam=exam))
 
 def daysUntilNextExam(current_date, tasks_df):
     # Exam day should be included in the count.
-    exams = _active_task_window(tasks_df, current_date, exam=True)
-    if exams.empty:
-        return None
-
     current_date = pd.to_datetime(current_date)
+    due_dates = pd.to_datetime(tasks_df["date_due"])
+    cancelled = _as_bool_series(tasks_df["isCancelled"])
+    exams = _as_bool_series(tasks_df["exam"])
+
+    exam_window = (
+        (due_dates >= current_date)
+        & ~cancelled
+        & exams
+    )
+
+    exams = tasks_df.loc[exam_window].copy()
+    exams["date_due"] = due_dates.loc[exam_window]
+
+    if exams.empty:
+        return -1
+
     next_exam_date = exams["date_due"].min()
     return int((next_exam_date - current_date).days)
 
