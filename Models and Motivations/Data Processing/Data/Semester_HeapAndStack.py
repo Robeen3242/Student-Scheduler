@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import timedelta
 
 import META_Data_Cleaning as mdc
 import Data_FeaTuring as ft
@@ -10,6 +10,33 @@ TERM_ORDER = {
     "spring": 2,
     "summer": 3,
     "fall": 4,
+}
+
+SEMESTER_GAP_DEFAULTS = {
+    "stress_wma_3": 0,
+    "stress_wma_7": 0,
+    "energy_wma_3": 8,
+    "energy_wma_7": 8,
+    "mood_wma_3": 5,
+    "mood_wma_7": 5,
+    "burnout_wma_3": 0,
+    "burnout_wma_7": 0,
+    "sleep_wma_3": 10,
+    "sleep_wma_7": 10,
+    "time_spent_wma_3": 0,
+    "time_spent_wma_7": 0,
+    "days_until_next_exam": -1,
+    "tasks_in3": 0,
+    "tasks_in7": 0,
+    "exams_in3": 0,
+    "exams_in7": 0,
+    "priority_sum7": 0,
+    "avgppt7": 0,
+    "max_priority7": 0,
+    "course_count": 0,
+    "course_count7": 0,
+    "course_priority_load7": 0,
+    "burnout": 0,
 }
 
 
@@ -104,14 +131,69 @@ def processSemesterData(semester,semester_data):
     print(f"Processed data for semester: {semester} with {len(processed_values)} entries.")
     return processed_values
 
-def generateHeap(processed_semesters):
+
+def fillBetweenSemesters(current_semester, next_semester, defaults):
+    """
+    Create default rows for dates between two semesters.
+
+    Args:
+    current_semester (dict): Processed data for the earlier semester.
+    next_semester (dict): Processed data for the later semester.
+    defaults (dict): Default feature values to use for each in-between date.
+
+    Returns:
+    dict: Date-keyed default rows for dates after the current semester and before the next semester.
+    """
+    if not current_semester or not next_semester:
+        return {}
+
+    current_end = max(current_semester)
+    next_start = min(next_semester)
+
+    gap_start = current_end + timedelta(days=1)
+    gap_end = next_start - timedelta(days=1)
+
+    if gap_start > gap_end:
+        return {}
+
+    gap_rows = {}
+    current_date = gap_start
+
+    while current_date <= gap_end:
+        gap_rows[current_date] = defaults.copy()
+        current_date += timedelta(days=1)
+
+    return gap_rows
+
+
+def joinSemesters(current_semester, next_semester, defaults):
+    """
+    Join two processed semesters and fill any dates between them with defaults.
+    """
+    return (
+        current_semester
+        | fillBetweenSemesters(current_semester, next_semester, defaults)
+        | next_semester
+    )
+
+
+def generateHeap(processed_semesters, gap_defaults=SEMESTER_GAP_DEFAULTS):
     batches = []
     scope = {}
     included_semesters = []
+    previous_semester_data = None
 
     for semester, semester_data in processed_semesters.items():
+        if previous_semester_data is not None:
+            scope.update(fillBetweenSemesters(
+                previous_semester_data,
+                semester_data,
+                gap_defaults
+            ))
+
         scope.update(semester_data)
         included_semesters.append(semester)
+        previous_semester_data = semester_data
 
         batches.append(scope.copy())
 
@@ -121,7 +203,8 @@ def generateHeap(processed_semesters):
         )
     return batches
 
-def generateStack(all_semesters):
+
+def generateStack(all_semesters, gap_defaults=SEMESTER_GAP_DEFAULTS):
     batches = []
     loaded_semesters = list(all_semesters.keys())
 
@@ -142,7 +225,11 @@ def generateStack(all_semesters):
             print(f"Skipping Batch {len(batches) + 1}: {next_semester} is missing from processed semesters.")
             continue
 
-        batches.append(all_semesters[semester] | all_semesters[next_semester])
+        batches.append(joinSemesters(
+            all_semesters[semester],
+            all_semesters[next_semester],
+            gap_defaults
+        ))
 
         print(f"Batch {len(batches)}: {semester}, {next_semester}")
 
@@ -178,3 +265,4 @@ if __name__ == "__main__":
     stack_batches = generateStack(processed_data)
     saveBatches(heap_batches, "heap_batch")
     saveBatches(stack_batches, "stack_batch")
+    print("Done")
